@@ -25,7 +25,6 @@ class ChoiceLoginPage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Image.asset(
                   "assets/images/login_1.png",
@@ -35,12 +34,13 @@ class ChoiceLoginPage extends StatelessWidget {
                 Text(
                   "Let's you in",
                   style: TextStyle(
-                    fontSize: MyDimensions.FONT_SIZE_H1 * 2,
+                    fontSize: MyDimensions.FONT_SIZE_H1 * 1.8,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(
+                Container(
                   height: MyDimensions.mySize.height * 0.3,
+                  margin: EdgeInsets.only(top: MyDimensions.SPACE_SIZE_4X),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -124,7 +124,9 @@ class ChoiceLoginPage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: MyDimensions.SPACE_SIZE_5X),
+                  margin: EdgeInsets.only(
+                      top: MyDimensions.SPACE_SIZE_1X,
+                      bottom: MyDimensions.SPACE_SIZE_5X),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

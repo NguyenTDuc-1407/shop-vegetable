@@ -13,6 +13,7 @@ class SqlashPage extends StatelessWidget {
       init: SqlashController(),
       builder: (SqlashController controller) => Scaffold(
         body: PageView.builder(
+          itemCount: controller.sqLash.length,
           onPageChanged: (value) => controller.onPageImage(value),
           controller: controller.pageController,
           itemBuilder: (context, index) => Column(
@@ -28,7 +29,7 @@ class SqlashPage extends StatelessWidget {
                 ),
               ),
               Expanded(
-                flex: 3,
+                flex: 4,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [

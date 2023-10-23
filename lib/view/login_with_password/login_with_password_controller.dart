@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:shopvegetable/routers/router_child/login_with_password_router.dart';
 
 class LoginWithPasswordController extends GetxController {
   var checkInputEmail = TextEditingController();
@@ -34,7 +35,15 @@ class LoginWithPasswordController extends GetxController {
     update();
   }
 
+  void onSignUpPage() {
+    Get.toNamed(LoginWithPasswordRouter.sign_up);
+  }
+
+  void onNextPageForget() {
+    Get.toNamed(LoginWithPasswordRouter.Forget_Password);
+  }
+
   void onBackPage() {
-    Get.back();
+    Get.toNamed(LoginWithPasswordRouter.Choice_login_Page);
   }
 }

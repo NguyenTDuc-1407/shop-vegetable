@@ -13,26 +13,23 @@ class FirstPage extends GetView {
     return GetBuilder(
       init: FirstController(),
       builder: (FirstController controller) => Scaffold(
-        backgroundColor: const Color.fromARGB(255, 51, 51, 51),
+        backgroundColor: Colors.white,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
               child: Image.asset(
-                'assets/images/logobca8v.png',
-                height: MyDimensions.SPACE_SIZE_5X * 5,
-                width: MyDimensions.SPACE_SIZE_5X * 5,
+                'assets/images/logo.png',
+                height: MyDimensions.SPACE_SIZE_5X * 10,
+                width: MyDimensions.SPACE_SIZE_5X * 10,
               ),
             ),
             Text(
-              "wellcome",
+              "Tự hào nông sản Việt",
               style: TextStyle(
-                  color: Colors.white, fontSize: MyDimensions.FONT_SIZE_H2),
-            ),
-            Text(
-              "afafsdfsdgsdgsggsgsdg",
-              style: TextStyle(
-                  color: Colors.white, fontSize: MyDimensions.FONT_SIZE_SPAN),
+                  color: Colors.black,
+                  fontSize: MyDimensions.FONT_SIZE_H1,
+                  fontWeight: FontWeight.w700),
             ),
           ],
         ),
