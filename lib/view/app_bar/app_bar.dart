@@ -1,22 +1,17 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
 
-class MyAppBar extends GetView {
-  const MyAppBar({super.key});
+// class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: InkWell(
-          onTap: () {
-            // controller.onBackPage();
-          },
-          child: Image.asset("assets/icons/back-ios.png"),
-        ),
-      ),
-    );
-  }
-}
+
+//     @override
+//   Size get preferredSize => throw UnimplementedError();
+  
+
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return AppBar()
+//   }
+  
+// }

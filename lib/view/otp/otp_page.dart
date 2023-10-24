@@ -245,9 +245,7 @@ class OtpPage extends GetView {
                       Countdown(
                         controller: controller.countdownController,
                         seconds: controller.timeStart,
-                        onFinished: () {
-                          print("asdsa");
-                        },
+                        onFinished: () {},
                         build: (p0, double time) => Text(
                           time.toString(),
                           style: const TextStyle(

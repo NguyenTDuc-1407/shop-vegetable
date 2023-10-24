@@ -1,6 +1,8 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:shopvegetable/view/bottom_bar/bottom_bar_binding.dart';
+import 'package:shopvegetable/view/bottom_bar/bottom_bar_page.dart';
 import 'package:shopvegetable/view/forget_password/forget_password_binding.dart';
 import 'package:shopvegetable/view/forget_password/forget_password_page.dart';
 import 'package:shopvegetable/view/sign_up/sign_up_binding.dart';
@@ -16,6 +18,7 @@ class LoginWithPasswordRouter {
   static const String sign_up = '/Sign-up';
   static const String Choice_login_Page = '/choice-login';
   static const String Forget_Password = '/forget-password';
+  static const String home = '/home';
   static List<GetPage> list = [
     GetPage(
       name: Login_with_password,
@@ -37,5 +40,10 @@ class LoginWithPasswordRouter {
       page: () => const ForgetPasswordPage(),
       binding: ForgetPasswordBinding(),
     ),
+    GetPage(
+      name: home,
+      page: () => const BottomBarPage(),
+      binding: BottomBarBinding(),
+    )
   ];
 }

@@ -171,7 +171,7 @@ class LoginWithPasswordPage extends GetView {
                     height: MyDimensions.SPACE_SIZE_5X * 1.5,
                   ),
                   InkWell(
-                    // onTap: () => controller.onNextHomePage(),
+                    onTap: () => controller.onNextPageHome(),
                     child: Container(
                       height: MyDimensions.SPACE_SIZE_5X * 2.7,
                       width: MyDimensions.mySize.width * 0.8,

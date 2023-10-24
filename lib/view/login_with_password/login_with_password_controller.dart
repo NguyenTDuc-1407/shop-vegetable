@@ -46,4 +46,8 @@ class LoginWithPasswordController extends GetxController {
   void onBackPage() {
     Get.toNamed(LoginWithPasswordRouter.Choice_login_Page);
   }
+
+  void onNextPageHome() {
+    Get.toNamed(LoginWithPasswordRouter.home);
+  }
 }
