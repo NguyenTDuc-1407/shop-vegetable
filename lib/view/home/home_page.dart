@@ -1,11 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:shopvegetable/view/home/home_controller.dart';
 import 'package:slide_countdown/slide_countdown.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:timer_count_down/timer_count_down.dart';
 import '../../help/dimensions.dart';
 
 class HomePage extends GetView {
@@ -39,7 +37,9 @@ class HomePage extends GetView {
                       right: MyDimensions.SPACE_SIZE_5X,
                     ),
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        controller.onNextPageCart();
+                      },
                       child: Center(
                         child: Stack(
                           alignment: Alignment.topRight,
@@ -53,23 +53,26 @@ class HomePage extends GetView {
                                 "assets/icons/cart.png",
                               ),
                             ),
-                            Container(
-                              margin: EdgeInsets.only(
-                                  left: MyDimensions.SPACE_SIZE_1X),
-                              height: MyDimensions.SPACE_SIZE_4X * 1.3,
-                              width: MyDimensions.SPACE_SIZE_4X * 1.3,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.red,
-                                border: Border.all(color: Colors.white),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  "99+",
-                                  style: TextStyle(
-                                      fontSize: MyDimensions
-                                          .FONT_SIZE_SPAN_SMALL_EXTRA),
+                            Visibility(
+                              visible: controller.checkCart,
+                              child: Container(
+                                margin: EdgeInsets.only(
+                                    left: MyDimensions.SPACE_SIZE_1X),
+                                height: MyDimensions.SPACE_SIZE_4X * 1.3,
+                                width: MyDimensions.SPACE_SIZE_4X * 1.3,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.red,
+                                  border: Border.all(color: Colors.white),
                                 ),
+                                child: Center(
+                                    child: Text(
+                                      controller.CartItem.length.toString(),
+                                      style: TextStyle(
+                                          fontSize: MyDimensions
+                                              .FONT_SIZE_SPAN_SMALL_EXTRA),
+                                    ),
+                                    ),
                               ),
                             )
                           ],
@@ -149,7 +152,7 @@ class HomePage extends GetView {
                           top: MyDimensions.SPACE_SIZE_3X,
                           left: MyDimensions.SPACE_SIZE_2X,
                           right: MyDimensions.SPACE_SIZE_2X),
-                      height: MyDimensions.mySize.height * 0.3,
+                      height: MyDimensions.mySize.height * 0.32,
                       child: Column(
                         children: [
                           Container(
@@ -261,8 +264,7 @@ class HomePage extends GetView {
                                                       child: Container(
                                                         margin: EdgeInsets.only(
                                                             left: MyDimensions
-                                                                    .SPACE_SIZE_5X *
-                                                                1.5),
+                                                                .SPACE_SIZE_5X),
                                                         child: RichText(
                                                           textAlign:
                                                               TextAlign.right,

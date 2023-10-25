@@ -1,11 +1,14 @@
+// ignore_for_file: prefer_is_empty, non_constant_identifier_names
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:shopvegetable/routers/router_child/home_router.dart';
 import 'package:timer_count_down/timer_controller.dart';
 
 class HomeController extends GetxController {
   var search = TextEditingController();
   int currentIndex = 0;
-  String quantitySold = "";
+  bool checkCart = false;
   List homebanner = [
     {
       "image": "assets/images/banner1.jpg",
@@ -93,6 +96,44 @@ class HomeController extends GetxController {
     },
   ];
 
+  List CartItem = [
+    {
+      "image": "assets/images/item1.jpg",
+      "title": "asdasdsadsssssssssssssssssssssssssssssssssssssssssssssssssss",
+      "price": "124.000đ",
+      "quatity": 1,
+      "checkbox": false,
+    },
+    {
+      "image": "assets/images/item1.jpg",
+      "title": "vvvvvv",
+      "price": "45.000đ",
+      "quatity": 1,
+      "checkbox": false,
+    },
+    {
+      "image": "assets/images/item1.jpg",
+      "title": "xxxxxxx",
+      "price": "363.000đ",
+      "quatity": 1,
+      "checkbox": false,
+    },
+    {
+      "image": "assets/images/item1.jpg",
+      "title": "xxxxxxx",
+      "price": "363.000đ",
+      "quatity": 1,
+      "checkbox": false,
+    },
+    {
+      "image": "assets/images/item1.jpg",
+      "title": "xxxxxxx",
+      "price": "363.000đ",
+      "quatity": 1,
+      "checkbox": false,
+    },
+  ];
+
   final PageController pageController = PageController();
 
   final defaultDuration = const Duration(hours: 2, minutes: 30);
@@ -100,27 +141,47 @@ class HomeController extends GetxController {
   final CountdownController countdownController =
       CountdownController(autoStart: true);
 
+  String quantitySold = "";
+  List quantitySoldList = [];
+
   @override
   void onInit() {
     super.onInit();
-    checkQuantitySold(5);
+
+    checkCartItem();
   }
 
-  void checkQuantitySold(int index) {
-    if (homeItem2[index]["quantitySold"] >= 1000) {
-      quantitySold = homeItem2[index]["quantitySold"].toString();
-      for (var i = quantitySold.length - 3; i < quantitySold.length; i--) {
-        quantitySold.replaceRange(i, quantitySold.length, "k");
-        if (i == i) {
-          break;
-        }
-      }
+  void checkCartItem() {
+    if (CartItem.length != 0) {
+      checkCart = true;
     }
-    update();
+  }
+
+  void onNextPageCart() {
+    Get.toNamed(HomeRouter.cart, arguments: [CartItem]);
   }
 
   void onPageImage(int index) {
     currentIndex = index;
     update();
   }
+  // void checkQuantitySold(int index) {
+  //   quantitySold = homeItem2[index]["quantitySold"].toString();
+  //   if (homeItem2[index]["quantitySold"] >= 1000) {
+  //     quantitySold = homeItem2[index]["quantitySold"].toString();
+  //     for (var i = quantitySold.length - 3; i < quantitySold.length; i--) {
+  //       quantitySold.replaceRange(i, quantitySold.length, "k");
+  //       if (i == i) {
+  //         break;
+  //       }
+  //     }
+  //   }
+  //   quantitySoldList.addAll([quantitySold]);
+  //   update();
+  // }
+
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  // }
 }

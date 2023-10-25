@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:shopvegetable/routers/router_child/cart_router.dart';
 import 'package:shopvegetable/routers/router_child/choice_login_router.dart';
 import 'package:shopvegetable/routers/router_child/first_router.dart';
 import 'package:shopvegetable/routers/router_child/forget_password_router.dart';
@@ -18,5 +19,6 @@ class AppPages {
     ...ForgetPasswordRouter.list,
     ...OtpRouter.list,
     ...HomeRouter.list,
+    ...CartRouter.list,
   ];
 }
