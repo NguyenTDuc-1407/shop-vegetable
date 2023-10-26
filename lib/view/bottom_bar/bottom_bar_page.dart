@@ -34,6 +34,7 @@ class BottomBarPage extends GetView<BottomBarController> {
                 builder: (BottomBarController controller) {
                   return SizedBox(
                     height: MyDimensions.SPACE_SIZE_5X * 1.2,
+                    width: MyDimensions.SPACE_SIZE_5X * 1.2,
                     child: Image.asset(
                       icon,
                       color: controller.currentIndex.value == index
@@ -44,26 +45,14 @@ class BottomBarPage extends GetView<BottomBarController> {
                 },
               ),
               Obx(
-                () => Container(
-                  margin: EdgeInsets.only(top: MyDimensions.ONE_UNIT_SIZE * 5),
-                  height: MyDimensions.ONE_UNIT_SIZE * 8,
-                  width: MyDimensions.ONE_UNIT_SIZE * 8,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.circular(MyDimensions.BORDER_RADIUS_7X),
-                    color: controller.currentIndex.value == index
-                        ? const Color.fromRGBO(24, 138, 144, 1)
-                        : Colors.white,
-                  ),
-                  child: Center(
-                    child: Text(
-                      title,
-                      style: TextStyle(
-                        color: controller.currentIndex.value == index
-                            ? const Color.fromRGBO(24, 138, 144, 1)
-                            : Colors.white,
-                        fontSize: MyDimensions.SPACE_SIZE_2X,
-                      ),
+                () => Center(
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                      color: controller.currentIndex.value == index
+                          ? const Color.fromRGBO(24, 138, 144, 1)
+                          : Colors.black,
+                      fontSize: MyDimensions.FONT_SIZE_SPAN,
                     ),
                   ),
                 ),
@@ -78,8 +67,6 @@ class BottomBarPage extends GetView<BottomBarController> {
   Widget bottomNavigator(BuildContext context) {
     return BottomAppBar(
       clipBehavior: Clip.hardEdge,
-      // color: Colors.red,
-      // shape: const CircularNotchedRectangle(),
       child: SizedBox(
         height: MyDimensions.SPACE_SIZE_5X * 3,
         width: MyDimensions.mySize.width,

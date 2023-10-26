@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:shopvegetable/view/search_item/search_item_page.dart';
 
 import '../home/home_page.dart';
 
@@ -9,15 +10,15 @@ class BottomBarController extends GetxController {
 
   final List<Map<String, dynamic>> pages = [
     {
-      'label': "",
+      'label': "home",
       'icon': "assets/icons/home.png",
       'page': const HomePage(),
     },
-    // {
-    //   'label': "",
-    //   'icon': ImagesPath.search_bottom,
-    //   'page': SearchListPage(),
-    // },
+    {
+      'label': "Item",
+      'icon': "assets/icons/search.png",
+      'page': const SearchItemPage(),
+    },
     // {
     //   'label': "",
     //   'icon': ImagesPath.user_bottom,

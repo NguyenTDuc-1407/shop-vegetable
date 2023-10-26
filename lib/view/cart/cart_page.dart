@@ -283,7 +283,7 @@ class CartPage extends GetView {
                           ),
                           children: [
                             TextSpan(
-                              text: "0",
+                              text: controller.item.toString(),
                               style: TextStyle(
                                 fontSize: MyDimensions.FONT_SIZE_SPAN,
                                 fontWeight: FontWeight.w500,

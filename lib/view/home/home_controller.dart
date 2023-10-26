@@ -1,14 +1,20 @@
-// ignore_for_file: prefer_is_empty, non_constant_identifier_names
+// ignore_for_file: prefer_is_empty, non_constant_identifier_names, unrelated_type_equality_checks
+
+import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shopvegetable/routers/router_child/home_router.dart';
-import 'package:timer_count_down/timer_controller.dart';
 
 class HomeController extends GetxController {
   var search = TextEditingController();
   int currentIndex = 0;
   bool checkCart = false;
+  bool checkSale = true;
+  final PageController pageController = PageController();
+  final defaultDuration = const Duration(hours: 2, minutes: 30);
+  String quantitySold = "";
+  List quantitySoldList = [];
   List homebanner = [
     {
       "image": "assets/images/banner1.jpg",
@@ -24,38 +30,7 @@ class HomeController extends GetxController {
     },
   ];
 
-  List homeItem = [
-    {
-      "image": "assets/images/home1.png",
-      "title": "aaaaaaaaaaa",
-      "color": const Color(0xff53B175),
-    },
-    {
-      "image": "assets/images/home2.png",
-      "title": "bbbbbbbbbbbbb",
-      "color": const Color(0xffF8A44C),
-    },
-    {
-      "image": "assets/images/home3.png",
-      "title": "ccccccccccccccccsssssssssssssssssssssssssssssssssssss",
-      "color": const Color(0xffF7A593),
-    },
-    {
-      "image": "assets/images/home4.png",
-      "title": "ddddddddddddd",
-      "color": const Color(0xffD3B0E0),
-    },
-    {
-      "image": "assets/images/home5.png",
-      "title": "eeeeeeeeeeeeeeeeeeeeee",
-      "color": const Color(0xffFDE598),
-    },
-    {
-      "image": "assets/images/home6.png",
-      "title": "fffffffffffffff",
-      "color": const Color(0xffB7DFF5),
-    },
-  ];
+
 
   List homeItem2 = [
     {
@@ -134,20 +109,9 @@ class HomeController extends GetxController {
     },
   ];
 
-  final PageController pageController = PageController();
-
-  final defaultDuration = const Duration(hours: 2, minutes: 30);
-
-  final CountdownController countdownController =
-      CountdownController(autoStart: true);
-
-  String quantitySold = "";
-  List quantitySoldList = [];
-
   @override
   void onInit() {
     super.onInit();
-
     checkCartItem();
   }
 
@@ -155,6 +119,12 @@ class HomeController extends GetxController {
     if (CartItem.length != 0) {
       checkCart = true;
     }
+    update();
+  }
+
+  void checkTimeSale() {
+    checkSale = false;
+    update();
   }
 
   void onNextPageCart() {
