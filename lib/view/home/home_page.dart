@@ -60,10 +60,9 @@ class HomePage extends GetView {
                                     left: MyDimensions.SPACE_SIZE_1X),
                                 height: MyDimensions.SPACE_SIZE_4X * 1.3,
                                 width: MyDimensions.SPACE_SIZE_4X * 1.3,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
                                   color: Colors.red,
-                                  border: Border.all(color: Colors.white),
                                 ),
                                 child: Center(
                                   child: Text(
@@ -74,7 +73,7 @@ class HomePage extends GetView {
                                   ),
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -366,7 +365,9 @@ class HomePage extends GetView {
                           ...List.generate(
                             controller.homeItem2.length,
                             (index) => GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                controller.onNextDetailItem();
+                              },
                               child: Container(
                                 decoration: BoxDecoration(
                                   border: Border.all(

@@ -19,11 +19,15 @@ class ForgetPasswordPage extends StatelessWidget {
             backgroundColor: Colors.white,
             elevation: 0,
             leading: InkWell(
-              onTap: () {
-                controller.onBackPage();
-              },
-              child: Image.asset("assets/icons/back-ios.png"),
-            ),
+                onTap: () {
+                  controller.onBackPage();
+                },
+                child: Container(
+                  margin: EdgeInsets.all(MyDimensions.SPACE_SIZE_1X),
+                  child: Image.asset(
+                    "assets/icons/back-ios.png",
+                  ),
+                )),
             title: const Text("Quên mật khẩu",
                 style: TextStyle(color: Colors.black)),
           ),
@@ -90,7 +94,7 @@ class ForgetPasswordPage extends StatelessWidget {
                     ),
                     Container(
                       margin: EdgeInsets.only(
-                          top: MyDimensions.SPACE_SIZE_5X,
+                          top: MyDimensions.SPACE_SIZE_5X * 2,
                           bottom: MyDimensions.SPACE_SIZE_5X),
                       width: MyDimensions.mySize.width * 0.8,
                       height: MyDimensions.SPACE_SIZE_5X * 2.5,
@@ -116,17 +120,6 @@ class ForgetPasswordPage extends StatelessWidget {
                             color: AppColors.white,
                             fontSize: MyDimensions.FONT_SIZE_SPAN,
                           ),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Text(
-                        "Cancel",
-                        style: TextStyle(
-                          color: Colors.teal,
-                          fontSize: MyDimensions.FONT_SIZE_H3,
-                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),

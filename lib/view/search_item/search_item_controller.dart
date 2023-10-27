@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:get/get.dart';
 
 class SreachItemController extends GetxController {
-    List homeItem = [
+  List homeItem = [
     {
       "image": "assets/images/home1.png",
       "title": "aaaaaaaaaaa",

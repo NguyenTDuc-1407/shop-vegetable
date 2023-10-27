@@ -32,15 +32,42 @@ class BottomBarPage extends GetView<BottomBarController> {
             children: [
               GetBuilder(
                 builder: (BottomBarController controller) {
-                  return SizedBox(
-                    height: MyDimensions.SPACE_SIZE_5X * 1.2,
-                    width: MyDimensions.SPACE_SIZE_5X * 1.2,
-                    child: Image.asset(
-                      icon,
-                      color: controller.currentIndex.value == index
-                          ? const Color.fromRGBO(24, 138, 144, 1)
-                          : const Color.fromARGB(255, 17, 17, 17),
-                    ),
+                  return Stack(
+                    alignment: Alignment.topRight,
+                    children: [
+                      SizedBox(
+                        height: MyDimensions.SPACE_SIZE_5X * 1.2,
+                        width: MyDimensions.SPACE_SIZE_5X * 1.2,
+                        child: Image.asset(
+                          icon,
+                          color: controller.currentIndex.value == index
+                              ? const Color.fromRGBO(24, 138, 144, 1)
+                              : const Color.fromARGB(255, 17, 17, 17),
+                        ),
+                      ),
+                      Visibility(
+                        visible: controller.pages[index]["checkNotifile"],
+                        child: Container(
+                          height: MyDimensions.SPACE_SIZE_4X * 0.85,
+                          width: MyDimensions.SPACE_SIZE_4X * 0.85,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.red,
+                            border: Border.all(color: Colors.black),
+                          ),
+                          child: Center(
+                            child: Text(
+                              '99',
+                              style: TextStyle(
+                                fontSize:
+                                    MyDimensions.FONT_SIZE_SPAN_SMALL_EXTRA,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   );
                 },
               ),

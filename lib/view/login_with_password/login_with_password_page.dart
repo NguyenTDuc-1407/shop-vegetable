@@ -19,11 +19,15 @@ class LoginWithPasswordPage extends GetView {
             backgroundColor: Colors.white,
             elevation: 0,
             leading: InkWell(
-              onTap: () {
-                controller.onBackPage();
-              },
-              child: Image.asset("assets/icons/back-ios.png"),
-            ),
+                onTap: () {
+                  controller.onBackPage();
+                },
+                child: Container(
+                  margin: EdgeInsets.all(MyDimensions.SPACE_SIZE_1X),
+                  child: Image.asset(
+                    "assets/icons/back-ios.png",
+                  ),
+                )),
           ),
           body: SingleChildScrollView(
             child: Center(

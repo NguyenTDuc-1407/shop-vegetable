@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:shopvegetable/view/notification/notification_page.dart';
+import 'package:shopvegetable/view/profile/profile_page.dart';
 import 'package:shopvegetable/view/search_item/search_item_page.dart';
 
 import '../home/home_page.dart';
@@ -13,17 +15,26 @@ class BottomBarController extends GetxController {
       'label': "home",
       'icon': "assets/icons/home.png",
       'page': const HomePage(),
+      "checkNotifile": false,
     },
     {
-      'label': "Item",
+      'label': "List item",
       'icon': "assets/icons/search.png",
       'page': const SearchItemPage(),
+      "checkNotifile": false,
     },
-    // {
-    //   'label': "",
-    //   'icon': ImagesPath.user_bottom,
-    //   'page': ProfilePage(),
-    // },
+    {
+      'label': "Thông báo",
+      'icon': "assets/icons/notification.png",
+      'page': const NotificationPage(),
+      "checkNotifile": true,
+    },
+    {
+      'label': "Tôi",
+      'icon': "assets/icons/user.png",
+      'page': const ProfilePage(),
+      "checkNotifile": false,
+    },
   ];
 
   ///

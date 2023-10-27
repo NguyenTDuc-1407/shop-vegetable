@@ -15,12 +15,6 @@ class ChoiceLoginPage extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
-          leading: InkWell(
-            onTap: () {
-              controller.onBackPage();
-            },
-            child: Image.asset("assets/icons/back-ios.png"),
-          ),
         ),
         body: SingleChildScrollView(
           child: Center(
@@ -140,7 +134,7 @@ class ChoiceLoginPage extends StatelessWidget {
                         width: MyDimensions.SPACE_SIZE_1X,
                       ),
                       InkWell(
-                        // onTap: () => controller.onLoginPage(),
+                        onTap: () => controller.onSignUpPage(),
                         child: Text(
                           "Sign up",
                           style: TextStyle(

@@ -30,8 +30,6 @@ class HomeController extends GetxController {
     },
   ];
 
-
-
   List homeItem2 = [
     {
       "image": "assets/images/item1.jpg",
@@ -125,6 +123,10 @@ class HomeController extends GetxController {
   void checkTimeSale() {
     checkSale = false;
     update();
+  }
+
+  void onNextDetailItem() {
+    Get.toNamed(HomeRouter.detail_item);
   }
 
   void onNextPageCart() {

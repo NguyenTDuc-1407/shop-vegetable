@@ -18,7 +18,12 @@ class CartPage extends GetView {
             onTap: () {
               controller.onBack();
             },
-            child: Image.asset("assets/icons/back-ios.png"),
+            child: Container(
+              margin: EdgeInsets.all(MyDimensions.SPACE_SIZE_1X),
+              child: Image.asset(
+                "assets/icons/back-ios.png",
+              ),
+            ),
           ),
           title: const Text("Giỏ hàng", style: TextStyle(color: Colors.black)),
         ),
