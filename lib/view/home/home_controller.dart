@@ -111,6 +111,7 @@ class HomeController extends GetxController {
   void onInit() {
     super.onInit();
     checkCartItem();
+    checkQuantitySold(5);
   }
 
   void checkCartItem() {
@@ -137,20 +138,21 @@ class HomeController extends GetxController {
     currentIndex = index;
     update();
   }
-  // void checkQuantitySold(int index) {
-  //   quantitySold = homeItem2[index]["quantitySold"].toString();
-  //   if (homeItem2[index]["quantitySold"] >= 1000) {
-  //     quantitySold = homeItem2[index]["quantitySold"].toString();
-  //     for (var i = quantitySold.length - 3; i < quantitySold.length; i--) {
-  //       quantitySold.replaceRange(i, quantitySold.length, "k");
-  //       if (i == i) {
-  //         break;
-  //       }
-  //     }
-  //   }
-  //   quantitySoldList.addAll([quantitySold]);
-  //   update();
-  // }
+
+  void checkQuantitySold(int index) {
+    if (homeItem2[index]["quantitySold"] >= 1000) {
+      quantitySold = homeItem2[index]["quantitySold"].toString();
+      for (var i = quantitySold.length - 3; i < quantitySold.length; i--) {
+        quantitySold = quantitySold.replaceRange(i, quantitySold.length, "k");
+        if (i == i) {
+          break;
+        }
+      }
+    }
+    quantitySoldList.addAll([quantitySold]);
+    print(quantitySold);
+    update();
+  }
 
   // @override
   // void onInit() {

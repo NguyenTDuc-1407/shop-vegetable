@@ -6,6 +6,7 @@ class CartController extends GetxController {
   bool checkBox = false;
   int item = 0;
   List cartItem = Get.arguments[0];
+  int countCheck = 0;
 
   void onCheckBox() {
     checkBox = !checkBox;
@@ -27,9 +28,11 @@ class CartController extends GetxController {
 
   void onCheckBoxId(int index) {
     cartItem[index]["checkbox"] = !cartItem[index]["checkbox"];
-    for (var i = 0; i < cartItem.length; i++) {
-      if (cartItem[i]["checkbox"] == true ) {
-        print(cartItem[i]["checkbox"]);
+
+    if (cartItem[index]["checkbox"] == true) {
+      countCheck = countCheck + 1;
+      if (countCheck == cartItem.length) {
+        checkBox = true;
       }
     }
 
