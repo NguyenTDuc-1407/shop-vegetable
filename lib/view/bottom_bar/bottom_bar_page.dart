@@ -48,8 +48,8 @@ class BottomBarPage extends GetView<BottomBarController> {
                       Visibility(
                         visible: controller.pages[index]["checkNotifile"],
                         child: Container(
-                          height: MyDimensions.SPACE_SIZE_4X * 0.85,
-                          width: MyDimensions.SPACE_SIZE_4X * 0.85,
+                          height: MyDimensions.SPACE_SIZE_4X * 0.88,
+                          width: MyDimensions.SPACE_SIZE_4X * 0.88,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: Colors.red,

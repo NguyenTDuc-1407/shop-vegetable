@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_overrides
+
 import 'package:get/get.dart';
 import 'package:shopvegetable/routers/router_child/home_router.dart';
 
@@ -19,7 +21,22 @@ class ProfileController extends GetxController {
       "page": "",
     },
   ];
+  List user = [
+    {
+      "name": "Aanya Sharma",
+      "Email": "123@gmail.com",
+      "address": "Banglore, India",
+      "gender": "nam",
+      "follow": "150 traveallies",
+      "phoneNumber": 0215615283,
+    }
+  ];
   void onNextPage(int index) {
-    Get.toNamed(profile[index]["page"]);
+    Get.toNamed(profile[index]["page"], arguments: [user]);
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
   }
 }

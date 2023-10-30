@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_overrides
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shopvegetable/routers/router_child/login_with_password_router.dart';
@@ -49,5 +51,10 @@ class LoginWithPasswordController extends GetxController {
 
   void onNextPageHome() {
     Get.toNamed(LoginWithPasswordRouter.home);
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
   }
 }

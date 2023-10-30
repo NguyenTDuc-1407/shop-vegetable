@@ -1,48 +1,15 @@
-// ignore_for_file: prefer_is_empty, non_constant_identifier_names
+// ignore_for_file: prefer_is_empty, non_constant_identifier_names, unnecessary_overrides
 
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../routers/router_child/home_router.dart';
 
 class DetailItemController extends GetxController {
   bool checkCart = false;
-  List CartItem = [
-    {
-      "image": "assets/images/item1.jpg",
-      "title": "asdasdsadsssssssssssssssssssssssssssssssssssssssssssssssssss",
-      "price": "124.000đ",
-      "quatity": 1,
-      "checkbox": false,
-    },
-    {
-      "image": "assets/images/item1.jpg",
-      "title": "vvvvvv",
-      "price": "45.000đ",
-      "quatity": 1,
-      "checkbox": false,
-    },
-    {
-      "image": "assets/images/item1.jpg",
-      "title": "xxxxxxx",
-      "price": "363.000đ",
-      "quatity": 1,
-      "checkbox": false,
-    },
-    {
-      "image": "assets/images/item1.jpg",
-      "title": "xxxxxxx",
-      "price": "363.000đ",
-      "quatity": 1,
-      "checkbox": false,
-    },
-    {
-      "image": "assets/images/item1.jpg",
-      "title": "xxxxxxx",
-      "price": "363.000đ",
-      "quatity": 1,
-      "checkbox": false,
-    },
-  ];
+  bool hideText = false;
+  var detailItem = Get.arguments[0];
+  var CartItem = Get.arguments[1];
 
   @override
   void onInit() {
@@ -57,7 +24,31 @@ class DetailItemController extends GetxController {
     update();
   }
 
+  void showAndHideText() {
+    hideText = !hideText;
+    update();
+  }
+
+  void actionButtonLike() {
+    detailItem["like"] = !detailItem["like"];
+    update();
+  }
+
+  void share() async {
+    await Share.share("asdasd");
+    update();
+  }
+
+  void onBack() {
+    Get.back();
+  }
+
   void onNextPageCart() {
     Get.toNamed(HomeRouter.cart, arguments: [CartItem]);
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
   }
 }

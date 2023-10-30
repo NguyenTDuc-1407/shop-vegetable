@@ -294,10 +294,8 @@ class HomePage extends GetView {
                                                               children: [
                                                                 TextSpan(
                                                                   text: controller
-                                                                      .homeItem2[
+                                                                      .quantitySoldList[
                                                                           index]
-                                                                          [
-                                                                          "quantitySold"]
                                                                       .toString(),
                                                                   style: TextStyle(
                                                                       fontSize:
@@ -366,7 +364,7 @@ class HomePage extends GetView {
                             controller.homeItem2.length,
                             (index) => GestureDetector(
                               onTap: () {
-                                controller.onNextDetailItem();
+                                controller.onNextDetailItem(index);
                               },
                               child: Container(
                                 decoration: BoxDecoration(
@@ -448,9 +446,8 @@ class HomePage extends GetView {
                                                           children: [
                                                             TextSpan(
                                                               text: controller
-                                                                  .homeItem2[
-                                                                      index][
-                                                                      "quantitySold"]
+                                                                  .quantitySoldList[
+                                                                      index]
                                                                   .toString(),
                                                               style: TextStyle(
                                                                   fontSize:

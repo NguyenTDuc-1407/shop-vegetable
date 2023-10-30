@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_overrides
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shopvegetable/routers/router_child/sqlash_router.dart';
@@ -41,5 +43,10 @@ class SqlashController extends GetxController {
         curve: Curves.easeInOut,
       );
     }
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
   }
 }

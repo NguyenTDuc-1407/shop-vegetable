@@ -1,6 +1,4 @@
-// ignore_for_file: prefer_is_empty, non_constant_identifier_names, unrelated_type_equality_checks
-
-import 'dart:async';
+// ignore_for_file: prefer_is_empty, non_constant_identifier_names, unrelated_type_equality_checks, unnecessary_overrides
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -33,38 +31,52 @@ class HomeController extends GetxController {
   List homeItem2 = [
     {
       "image": "assets/images/item1.jpg",
-      "title": "aaaaaaaaaaa",
+      "title":
+          "aaaaaaaaaaasssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
       "price": "1234.000đ",
+      "context":
+          "asdsadfsagregdagagdhhdfhhhhhhhgsgregsdgsdgsdgrgdfgrehdfhdhtrhdrfhthrhdagareghthjghrharhsthfg5htjdrhtggehfharhthghnhthtasdsssssssssssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddawwwwwwwwwwwwwwwwwwwwwwwwdssssssssssssjrh",
+      "like": false,
       "quantitySold": 25,
     },
     {
       "image": "assets/images/item1.jpg",
       "title": "bbbbbbbbbbbbb",
       "price": "5345.000đ",
+      "context": "",
+      "like": false,
       "quantitySold": 43,
     },
     {
       "image": "assets/images/item1.jpg",
       "title": "ccccccccccccccccsssssssssssssssssssssssssssssssssssss",
       "price": "64.000đ",
+      "context": "",
+      "like": false,
       "quantitySold": 14235,
     },
     {
       "image": "assets/images/item1.jpg",
       "title": "ddddddddddddd",
       "price": "65.000đ",
+      "context": "",
+      "like": false,
       "quantitySold": 45,
     },
     {
       "image": "assets/images/item1.jpg",
       "title": "eeeeeeeeeeeeeeeeeeeeee",
       "price": "74.000đ",
+      "context": "",
+      "like": false,
       "quantitySold": 625658,
     },
     {
       "image": "assets/images/item1.jpg",
       "title": "fffffffffffffff",
       "price": "63.000đ",
+      "context": "",
+      "like": false,
       "quantitySold": 140235,
     },
   ];
@@ -111,7 +123,7 @@ class HomeController extends GetxController {
   void onInit() {
     super.onInit();
     checkCartItem();
-    checkQuantitySold(5);
+    checkQuantitySold();
   }
 
   void checkCartItem() {
@@ -126,8 +138,9 @@ class HomeController extends GetxController {
     update();
   }
 
-  void onNextDetailItem() {
-    Get.toNamed(HomeRouter.detail_item);
+  void onNextDetailItem(int index) {
+    Get.toNamed(HomeRouter.detail_item,
+        arguments: [homeItem2[index], CartItem]);
   }
 
   void onNextPageCart() {
@@ -139,23 +152,25 @@ class HomeController extends GetxController {
     update();
   }
 
-  void checkQuantitySold(int index) {
-    if (homeItem2[index]["quantitySold"] >= 1000) {
-      quantitySold = homeItem2[index]["quantitySold"].toString();
-      for (var i = quantitySold.length - 3; i < quantitySold.length; i--) {
-        quantitySold = quantitySold.replaceRange(i, quantitySold.length, "k");
-        if (i == i) {
-          break;
+  void checkQuantitySold() {
+    for (var i in homeItem2) {
+      quantitySold = i["quantitySold"].toString();
+      if (i["quantitySold"] >= 1000) {
+        quantitySold = i["quantitySold"].toString();
+        for (var i = quantitySold.length - 3; i < quantitySold.length; i--) {
+          quantitySold = quantitySold.replaceRange(i, quantitySold.length, "k");
+          if (i == i) {
+            break;
+          }
         }
       }
+      quantitySoldList.addAll([quantitySold]);
     }
-    quantitySoldList.addAll([quantitySold]);
-    print(quantitySold);
     update();
   }
 
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  // }
+  @override
+  void onClose() {
+    super.onClose();
+  }
 }

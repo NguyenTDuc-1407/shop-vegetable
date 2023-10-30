@@ -257,13 +257,14 @@ class LoginWithPasswordPage extends GetView {
                           borderRadius:
                               BorderRadius.circular(MyDimensions.SPACE_SIZE_2X),
                           border: Border.all(
-                              color: const Color.fromRGBO(
-                                164,
-                                162,
-                                162,
-                                1,
-                              ),
-                              width: MyDimensions.ONE_UNIT_SIZE * 0.2),
+                            color: const Color.fromRGBO(
+                              164,
+                              162,
+                              162,
+                              1,
+                            ),
+                            width: MyDimensions.ONE_UNIT_SIZE * 0.2,
+                          ),
                         ),
                         child: Image.asset(
                           "assets/icons/apple.png",

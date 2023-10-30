@@ -34,8 +34,7 @@ class ProfilePage extends GetView {
                     ),
                   ),
                   Container(
-                    margin:
-                        EdgeInsets.only(left: MyDimensions.SPACE_SIZE_5X * 1.5),
+                    margin: EdgeInsets.only(left: MyDimensions.SPACE_SIZE_5X),
                     child: Row(
                       children: [
                         Container(
@@ -60,23 +59,23 @@ class ProfilePage extends GetView {
                           width: MyDimensions.SPACE_SIZE_5X * 13,
                           child: ListTile(
                             title: Text(
-                              "Aanya Sharma",
+                              controller.user[0]["name"],
                               style: TextStyle(
                                   fontSize: MyDimensions.FONT_SIZE_H4,
                                   fontWeight: FontWeight.w700),
                             ),
                             subtitle: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
+                              children: [
                                 Text(
-                                  "Banglore, India",
-                                  style: TextStyle(
+                                  controller.user[0]["address"],
+                                  style: const TextStyle(
                                       fontWeight: FontWeight.w400,
                                       color: Colors.black),
                                 ),
                                 Text(
-                                  "150 traveallies",
-                                  style: TextStyle(
+                                  controller.user[0]["follow"],
+                                  style: const TextStyle(
                                       color: Color(0xff4AA9BC),
                                       fontWeight: FontWeight.w500),
                                 )

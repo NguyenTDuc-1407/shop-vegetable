@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_overrides
+
 import 'dart:async';
 
 import 'package:get/get.dart';
@@ -10,5 +12,10 @@ class FirstController extends GetxController {
     Timer(const Duration(seconds: 3), () {
       Get.toNamed(FirstRouter.Sqlash_Page);
     });
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
   }
 }

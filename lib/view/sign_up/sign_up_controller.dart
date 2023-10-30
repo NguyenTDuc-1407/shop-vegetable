@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_overrides
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shopvegetable/routers/router_child/sign_up_router.dart';
@@ -41,5 +43,10 @@ class SignUpController extends GetxController {
 
   void onBackPage() {
     Get.back();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
   }
 }

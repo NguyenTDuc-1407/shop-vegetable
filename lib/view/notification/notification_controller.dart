@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_overrides
+
 import 'package:get/get.dart';
 
 class NotificationController extends GetxController {
@@ -50,4 +52,8 @@ class NotificationController extends GetxController {
       "context": "rtshfgjygiyjfg",
     },
   ];
+  @override
+  void onClose() {
+    super.onClose();
+  }
 }

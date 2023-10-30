@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_overrides
+
 import 'dart:ui';
 
 import 'package:get/get.dart';
@@ -35,4 +37,8 @@ class SreachItemController extends GetxController {
       "color": const Color(0xffB7DFF5),
     },
   ];
+  @override
+  void onClose() {
+    super.onClose();
+  }
 }
