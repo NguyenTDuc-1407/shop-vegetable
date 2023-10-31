@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_overrides
+// ignore_for_file: unnecessary_overrides, non_constant_identifier_names
 
 import 'package:get/get.dart';
 
@@ -52,6 +52,11 @@ class NotificationController extends GetxController {
       "context": "rtshfgjygiyjfg",
     },
   ];
+  Future Refresh() async {
+    notification = [];
+    update();
+  }
+
   @override
   void onClose() {
     super.onClose();

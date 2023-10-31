@@ -25,58 +25,64 @@ class NotificationPage extends GetView {
             ),
           ),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: MyDimensions.SPACE_SIZE_5X,
-              ),
-              ...List.generate(
-                controller.notification.length,
-                (index) => Container(
-                  margin: EdgeInsets.only(top: MyDimensions.BORDER_RADIUS_4X),
-                  color: Colors.white,
-                  child: ListTile(
-                    leading: Container(
-                      height: MyDimensions.SPACE_SIZE_5X * 1.5,
-                      width: MyDimensions.SPACE_SIZE_5X * 1.5,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(color: Colors.black),
-                      ),
-                      child: Image.asset(
-                        controller.notification[index]["leading"],
-                      ),
-                    ),
-                    title: Container(
-                      margin: EdgeInsets.only(top: MyDimensions.SPACE_SIZE_2X),
-                      child: Text(
-                        controller.notification[index]["title"],
-                        style: TextStyle(
-                            fontSize: MyDimensions.FONT_SIZE_H5,
-                            overflow: TextOverflow.ellipsis),
-                      ),
-                    ),
-                    subtitle: Container(
-                      margin:
-                          EdgeInsets.only(bottom: MyDimensions.SPACE_SIZE_2X),
-                      child: Text(
-                        controller.notification[index]["context"],
-                        style: TextStyle(
-                          fontSize: MyDimensions.FONT_SIZE_SPAN,
-                          overflow: TextOverflow.ellipsis,
+        body: RefreshIndicator(
+          onRefresh: () async {
+            controller.Refresh();
+          },
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: MyDimensions.SPACE_SIZE_5X,
+                ),
+                ...List.generate(
+                  controller.notification.length,
+                  (index) => Container(
+                    margin: EdgeInsets.only(top: MyDimensions.BORDER_RADIUS_4X),
+                    color: Colors.white,
+                    child: ListTile(
+                      leading: Container(
+                        height: MyDimensions.SPACE_SIZE_5X * 1.5,
+                        width: MyDimensions.SPACE_SIZE_5X * 1.5,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: Colors.black),
                         ),
-                        maxLines: 2,
+                        child: Image.asset(
+                          controller.notification[index]["leading"],
+                        ),
                       ),
-                    ),
-                    trailing: SizedBox(
-                      height: MyDimensions.mySize.height,
-                      child: const Icon(Icons.navigate_next),
+                      title: Container(
+                        margin:
+                            EdgeInsets.only(top: MyDimensions.SPACE_SIZE_2X),
+                        child: Text(
+                          controller.notification[index]["title"],
+                          style: TextStyle(
+                              fontSize: MyDimensions.FONT_SIZE_H5,
+                              overflow: TextOverflow.ellipsis),
+                        ),
+                      ),
+                      subtitle: Container(
+                        margin:
+                            EdgeInsets.only(bottom: MyDimensions.SPACE_SIZE_2X),
+                        child: Text(
+                          controller.notification[index]["context"],
+                          style: TextStyle(
+                            fontSize: MyDimensions.FONT_SIZE_SPAN,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          maxLines: 2,
+                        ),
+                      ),
+                      trailing: SizedBox(
+                        height: MyDimensions.mySize.height,
+                        child: const Icon(Icons.navigate_next),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

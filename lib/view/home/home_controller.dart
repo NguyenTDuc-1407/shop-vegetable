@@ -157,15 +157,16 @@ class HomeController extends GetxController {
       quantitySold = i["quantitySold"].toString();
       if (i["quantitySold"] >= 1000) {
         quantitySold = i["quantitySold"].toString();
-        for (var i = quantitySold.length - 3; i < quantitySold.length; i--) {
-          quantitySold = quantitySold.replaceRange(i, quantitySold.length, "k");
-          if (i == i) {
-            break;
-          }
-        }
+        quantitySold = quantitySold.replaceRange(
+            quantitySold.length - 3, quantitySold.length, "k");
       }
       quantitySoldList.addAll([quantitySold]);
     }
+    update();
+  }
+
+  Future Refresh() async {
+    homeItem2 = [];
     update();
   }
 
