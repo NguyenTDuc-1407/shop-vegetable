@@ -3,6 +3,7 @@
 import 'dart:ui';
 
 import 'package:get/get.dart';
+import 'package:shopvegetable/routers/router_child/home_router.dart';
 
 class SreachItemController extends GetxController {
   List homeItem = [
@@ -37,6 +38,101 @@ class SreachItemController extends GetxController {
       "color": const Color(0xffB7DFF5),
     },
   ];
+  List homeItem2 = [
+    {
+      "image": "assets/images/item1.jpg",
+      "title":
+          "aaaaaaaaaaasssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+      "price": "1234.000đ",
+      "context":
+          "asdsadfsagregdagagdhhdfhhhhhhhgsgregsdgsdgsdgrgdfgrehdfhdhtrhdrfhthrhdagareghthjghrharhsthfg5htjdrhtggehfharhthghnhthtasdsssssssssssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddawwwwwwwwwwwwwwwwwwwwwwwwdssssssssssssjrh",
+      "like": false,
+      "quantitySold": 25,
+    },
+    {
+      "image": "assets/images/item1.jpg",
+      "title": "bbbbbbbbbbbbb",
+      "price": "5345.000đ",
+      "context": "",
+      "like": false,
+      "quantitySold": 43,
+    },
+    {
+      "image": "assets/images/item1.jpg",
+      "title": "ccccccccccccccccsssssssssssssssssssssssssssssssssssss",
+      "price": "64.000đ",
+      "context": "",
+      "like": false,
+      "quantitySold": 14235,
+    },
+    {
+      "image": "assets/images/item1.jpg",
+      "title": "ddddddddddddd",
+      "price": "65.000đ",
+      "context": "",
+      "like": false,
+      "quantitySold": 45,
+    },
+    {
+      "image": "assets/images/item1.jpg",
+      "title": "eeeeeeeeeeeeeeeeeeeeee",
+      "price": "74.000đ",
+      "context": "",
+      "like": false,
+      "quantitySold": 625658,
+    },
+    {
+      "image": "assets/images/item1.jpg",
+      "title": "fffffffffffffff",
+      "price": "63.000đ",
+      "context": "",
+      "like": false,
+      "quantitySold": 140235,
+    },
+    {
+      "image": "assets/images/item1.jpg",
+      "title": "fffffffffffffff",
+      "price": "63.000đ",
+      "context": "",
+      "like": false,
+      "quantitySold": 140235,
+    },
+    {
+      "image": "assets/images/item1.jpg",
+      "title": "fffffffffffffff",
+      "price": "63.000đ",
+      "context": "",
+      "like": false,
+      "quantitySold": 140235,
+    },
+    {
+      "image": "assets/images/item1.jpg",
+      "title": "fffffffffffffff",
+      "price": "63.000đ",
+      "context": "",
+      "like": false,
+      "quantitySold": 140235,
+    },
+    {
+      "image": "assets/images/item1.jpg",
+      "title": "fffffffffffffff",
+      "price": "63.000đ",
+      "context": "",
+      "like": false,
+      "quantitySold": 140235,
+    },
+  ];
+
+  void onDeitailTpeItem(int index) {
+    Get.toNamed(
+      HomeRouter.detail_type_item,
+      arguments: [
+        homeItem2,
+        homeItem[index]["title"],
+      ],
+    );
+  }
+
   @override
   void onClose() {
     super.onClose();

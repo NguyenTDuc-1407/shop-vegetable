@@ -201,7 +201,7 @@ class HomePage extends GetView {
                               Expanded(
                                 child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
-                                  itemCount: controller.homeItem2.length,
+                                  itemCount: controller.homeItem.length,
                                   itemBuilder: (context, index) =>
                                       GestureDetector(
                                     onTap: () {},
@@ -224,7 +224,7 @@ class HomePage extends GetView {
                                             height: MyDimensions.SPACE_SIZE_5X *
                                                 5.5,
                                             child: Image.asset(
-                                              controller.homeItem2[index]
+                                              controller.homeItem[index]
                                                   ["image"],
                                               fit: BoxFit.cover,
                                             ),
@@ -240,7 +240,7 @@ class HomePage extends GetView {
                                                         .spaceBetween,
                                                 children: [
                                                   Text(
-                                                    controller.homeItem2[index]
+                                                    controller.homeItem[index]
                                                         ["title"],
                                                     style: TextStyle(
                                                         fontSize: MyDimensions
@@ -263,7 +263,7 @@ class HomePage extends GetView {
                                                               .spaceBetween,
                                                       children: [
                                                         Text(
-                                                          controller.homeItem2[
+                                                          controller.homeItem[
                                                               index]["price"],
                                                           style: TextStyle(
                                                               fontSize: MyDimensions
@@ -331,7 +331,7 @@ class HomePage extends GetView {
                                     ),
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),
@@ -371,7 +371,7 @@ class HomePage extends GetView {
                           ),
                           children: [
                             ...List.generate(
-                              controller.homeItem2.length,
+                              controller.homeItem.length,
                               (index) => GestureDetector(
                                 onTap: () {
                                   controller.onNextDetailItem(index);
@@ -390,7 +390,7 @@ class HomePage extends GetView {
                                         height:
                                             MyDimensions.SPACE_SIZE_5X * 5.5,
                                         child: Image.asset(
-                                          controller.homeItem2[index]["image"],
+                                          controller.homeItem[index]["image"],
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -404,7 +404,7 @@ class HomePage extends GetView {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
-                                                controller.homeItem2[index]
+                                                controller.homeItem[index]
                                                     ["title"],
                                                 style: TextStyle(
                                                     fontSize: MyDimensions
@@ -427,7 +427,7 @@ class HomePage extends GetView {
                                                   children: [
                                                     Text(
                                                       controller
-                                                              .homeItem2[index]
+                                                              .homeItem[index]
                                                           ["price"],
                                                       style: TextStyle(
                                                           fontSize: MyDimensions

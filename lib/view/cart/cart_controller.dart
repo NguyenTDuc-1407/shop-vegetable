@@ -1,10 +1,12 @@
 // ignore_for_file: non_constant_identifier_names, unnecessary_overrides
 
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
   bool checkBox = false;
   int item = 0;
+  var InputQuatity = TextEditingController();
   List cartItem = Get.arguments[0];
 
   void onCheckBox() {

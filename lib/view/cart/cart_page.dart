@@ -114,78 +114,66 @@ class CartPage extends GetView {
                                           fontSize: MyDimensions.FONT_SIZE_H6),
                                     ),
                                   ),
-                                  Row(
-                                    children: [
-                                      InkWell(
-                                        onTap: () {},
-                                        child: Container(
-                                          margin: EdgeInsets.only(
-                                              right:
-                                                  MyDimensions.SPACE_SIZE_2X),
-                                          width: MyDimensions.SPACE_SIZE_5X * 2,
-                                          decoration: BoxDecoration(
-                                            border: Border.all(
-                                              color: Colors.grey,
+                                  SizedBox(
+                                    width: MyDimensions.SPACE_SIZE_5X * 8,
+                                    height: MyDimensions.SPACE_SIZE_5X * 1.4,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        InkWell(
+                                          onTap: () {},
+                                          child: Container(
+                                            width:
+                                                MyDimensions.SPACE_SIZE_5X * 2,
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: Colors.grey,
+                                              ),
                                             ),
+                                            child: const Icon(Icons.add),
                                           ),
-                                          child: const Icon(Icons.add),
                                         ),
-                                      ),
+                                        Text(
+                                          controller.cartItem[index]["quatity"]
+                                              .toString(),
+                                          style: TextStyle(
+                                              fontSize:
+                                                  MyDimensions.FONT_SIZE_SPAN),
+                                        ),
+                                        // Expanded(
+                                        //   child: Card(
+                                        //     child: TextField(
+                                        //       controller:
+                                        //           controller.InputQuatity,
+                                        //       style: const TextStyle(
+                                        //           color: Color.fromARGB(
+                                        //               255, 74, 169, 188)),
+                                        //       keyboardType:
+                                        //           TextInputType.emailAddress,
+                                        //       decoration: const InputDecoration(
+                                        //         border: InputBorder.none,
+                                        //         hintText: "Email",
+                                        //       ),
+                                        //     ),
+                                        //   ),
+                                        // ),
 
-                                      Text(
-                                        controller.cartItem[index]["quatity"]
-                                            .toString(),
-                                        style: TextStyle(
-                                            fontSize:
-                                                MyDimensions.FONT_SIZE_SPAN),
-                                      ),
-                                      // Container(
-                                      //   height:
-                                      //       MyDimensions.SPACE_SIZE_5X * 1.2,
-                                      //   width: MyDimensions.SPACE_SIZE_5X * 3,
-                                      //   color: Colors.teal,
-                                      //   child: TextField(
-                                      //     onChanged: (value) {},
-                                      //     textAlignVertical:
-                                      //         TextAlignVertical.center,
-                                      //     inputFormatters: [
-                                      //       FilteringTextInputFormatter.allow(
-                                      //         RegExp(r'[0-9]'),
-                                      //       ),
-                                      //     ],
-                                      //     style: TextStyle(
-                                      //       fontSize:
-                                      //           MyDimensions.FONT_SIZE_SPAN,
-                                      //     ),
-                                      //     keyboardType: TextInputType.number,
-                                      //     textAlign: TextAlign.center,
-                                      //     decoration: const InputDecoration(
-                                      //       border: OutlineInputBorder(
-                                      //         borderSide: BorderSide(
-                                      //             color: AppColors.blue),
-                                      //       ),
-                                      //       focusedBorder: OutlineInputBorder(
-                                      //         borderSide: BorderSide(
-                                      //             color: AppColors.blue),
-                                      //       ),
-                                      //     ),
-                                      //   ),
-                                      // ),
-                                      InkWell(
-                                        onTap: () {},
-                                        child: Container(
-                                          margin: EdgeInsets.only(
-                                              left: MyDimensions.SPACE_SIZE_2X),
-                                          width: MyDimensions.SPACE_SIZE_5X * 2,
-                                          decoration: BoxDecoration(
-                                            border: Border.all(
-                                              color: Colors.grey,
+                                        InkWell(
+                                          onTap: () {},
+                                          child: Container(
+                                            width:
+                                                MyDimensions.SPACE_SIZE_5X * 2,
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: Colors.grey,
+                                              ),
                                             ),
+                                            child: const Icon(Icons.remove),
                                           ),
-                                          child: const Icon(Icons.remove),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),

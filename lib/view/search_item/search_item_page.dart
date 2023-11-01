@@ -38,12 +38,12 @@ class SearchItemPage extends GetView {
           ),
           body: Container(
             margin: EdgeInsets.only(
-                top: MyDimensions.SPACE_SIZE_1X,
-                left: MyDimensions.SPACE_SIZE_2X,
-                right: MyDimensions.SPACE_SIZE_2X),
-            height: MyDimensions.mySize.height * 0.85,
+              top: MyDimensions.SPACE_SIZE_1X,
+              left: MyDimensions.SPACE_SIZE_2X,
+              right: MyDimensions.SPACE_SIZE_2X,
+            ),
             child: GridView(
-              padding: const EdgeInsets.all(0),
+              padding: EdgeInsets.only(bottom: MyDimensions.SPACE_SIZE_5X),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: (MyDimensions.ONE_UNIT_SIZE *
@@ -56,37 +56,42 @@ class SearchItemPage extends GetView {
               children: [
                 ...List.generate(
                   controller.homeItem.length,
-                  (index) => Container(
-                    decoration: BoxDecoration(
-                      borderRadius:
-                          BorderRadius.circular(MyDimensions.BORDER_RADIUS_4X),
-                      color: controller.homeItem[index]["color"],
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          height: MyDimensions.SPACE_SIZE_5X * 5,
-                          width: MyDimensions.SPACE_SIZE_5X * 5,
-                          child: Image.asset(
-                            controller.homeItem[index]["image"],
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(
-                            left: MyDimensions.SPACE_SIZE_5X,
-                            right: MyDimensions.SPACE_SIZE_5X,
-                            top: MyDimensions.SPACE_SIZE_1X,
-                          ),
-                          child: Text(
-                            controller.homeItem[index]["title"],
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: MyDimensions.FONT_SIZE_H6,
+                  (index) => InkWell(
+                    onTap: () {
+                      controller.onDeitailTpeItem(index);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                            MyDimensions.BORDER_RADIUS_4X),
+                        color: controller.homeItem[index]["color"],
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            height: MyDimensions.SPACE_SIZE_5X * 5,
+                            width: MyDimensions.SPACE_SIZE_5X * 5,
+                            child: Image.asset(
+                              controller.homeItem[index]["image"],
                             ),
                           ),
-                        ),
-                      ],
+                          Container(
+                            margin: EdgeInsets.only(
+                              left: MyDimensions.SPACE_SIZE_5X,
+                              right: MyDimensions.SPACE_SIZE_5X,
+                              top: MyDimensions.SPACE_SIZE_1X,
+                            ),
+                            child: Text(
+                              controller.homeItem[index]["title"],
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: MyDimensions.FONT_SIZE_H6,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 )

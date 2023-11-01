@@ -28,7 +28,7 @@ class HomeController extends GetxController {
     },
   ];
 
-  List homeItem2 = [
+  List homeItem = [
     {
       "image": "assets/images/item1.jpg",
       "title":
@@ -140,7 +140,7 @@ class HomeController extends GetxController {
 
   void onNextDetailItem(int index) {
     Get.toNamed(HomeRouter.detail_item,
-        arguments: [homeItem2[index], CartItem]);
+        arguments: [homeItem[index], CartItem, homeItem]);
   }
 
   void onNextPageCart() {
@@ -153,7 +153,7 @@ class HomeController extends GetxController {
   }
 
   void checkQuantitySold() {
-    for (var i in homeItem2) {
+    for (var i in homeItem) {
       quantitySold = i["quantitySold"].toString();
       if (i["quantitySold"] >= 1000) {
         quantitySold = i["quantitySold"].toString();
@@ -166,7 +166,7 @@ class HomeController extends GetxController {
   }
 
   Future Refresh() async {
-    homeItem2 = [];
+    homeItem = [];
     update();
   }
 

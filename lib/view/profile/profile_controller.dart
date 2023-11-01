@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_overrides
 
 import 'package:get/get.dart';
+import 'package:shopvegetable/routers/router_child/edit_profile_router.dart';
 import 'package:shopvegetable/routers/router_child/home_router.dart';
 
 class ProfileController extends GetxController {
@@ -13,13 +14,13 @@ class ProfileController extends GetxController {
     {
       "icon": "assets/icons/change-password.png",
       "title": "đổi mật khẩu",
-      "page": "",
+      "page": EditProflieRouter.change_password,
     },
-    {
-      "icon": "assets/icons/logout.png",
-      "title": "Đăng suất",
-      "page": "",
-    },
+    // {
+    //   "icon": "assets/icons/logout.png",
+    //   "title": "Đăng suất",
+    //   "page": "",
+    // },
   ];
   List user = [
     {

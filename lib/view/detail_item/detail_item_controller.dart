@@ -10,6 +10,7 @@ class DetailItemController extends GetxController {
   bool hideText = false;
   var detailItem = Get.arguments[0];
   var CartItem = Get.arguments[1];
+  var homeItem = Get.arguments[2];
 
   @override
   void onInit() {
