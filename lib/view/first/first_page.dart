@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopvegetable/help/dimensions.dart';
+import 'package:shopvegetable/utils/image_path.dart';
+import 'package:shopvegetable/utils/text_app.dart';
 import 'package:shopvegetable/view/first/first_controller.dart';
 
 class FirstPage extends GetView {
@@ -19,13 +21,13 @@ class FirstPage extends GetView {
           children: [
             Center(
               child: Image.asset(
-                'assets/images/logo.png',
+                ImagePath.logo,
                 height: MyDimensions.SPACE_SIZE_5X * 10,
                 width: MyDimensions.SPACE_SIZE_5X * 10,
               ),
             ),
             Text(
-              "Tự hào nông sản Việt",
+              TextApp.Tuhaonongsanviet,
               style: TextStyle(
                   color: Colors.black,
                   fontSize: MyDimensions.FONT_SIZE_H1,

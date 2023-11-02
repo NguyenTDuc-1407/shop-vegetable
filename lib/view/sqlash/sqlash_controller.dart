@@ -3,27 +3,29 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shopvegetable/routers/router_child/sqlash_router.dart';
+import 'package:shopvegetable/utils/image_path.dart';
+import 'package:shopvegetable/utils/text_app.dart';
 
 class SqlashController extends GetxController {
   int currentIndex = 0;
   List sqLash = [
     {
-      "image": "assets/images/sql_1.png",
-      "title": "AAA",
-      "context": "affsdfsdfdsfsssssssssssssssssssssssss\nasd",
-      "buton": "Next",
+      "image": ImagePath.sqlash,
+      "title": TextApp.titleSqlash,
+      "context": TextApp.contextSqlash,
+      "buton": TextApp.buttonSqlash,
     },
     {
-      "image": "assets/images/sql_1.png",
-      "title": "BBBsssssssssssssssssssss",
-      "context": "affsdfsdfdsfsss",
-      "buton": "Next",
+      "image": ImagePath.sqlash,
+      "title": TextApp.titleSqlash1,
+      "context": TextApp.contextSqlash1,
+      "buton": TextApp.buttonSqlash,
     },
     {
-      "image": "assets/images/sql_1.png",
-      "title": "CCC",
-      "context": "affsdfsdfdsf",
-      "buton": "Get Started",
+      "image": ImagePath.sqlash,
+      "title": TextApp.titleSqlash2,
+      "context": TextApp.contextSqlash2,
+      "buton": TextApp.buttonStartSqlash,
     },
   ];
   final PageController pageController = PageController();

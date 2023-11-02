@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopvegetable/view/profile/edit_profile/edit_detail_profile/edit_detail_profile_controller.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../../../help/dimensions.dart';
 
@@ -201,7 +203,16 @@ class EditDetailPage extends GetView {
               ),
             ),
             InkWell(
-              // onTap: () => controller.onLoginPage(),
+              onTap: () {
+                showTopSnackBar(
+                  Overlay.of(context),
+                  const CustomSnackBar.info(
+                    message: "Thông tin đã được thay đổi",
+                    backgroundColor: Colors.teal,
+                  ),
+                );
+                controller.onBack();
+              },
               child: Container(
                 height: MyDimensions.SPACE_SIZE_5X * 2.7,
                 width: MyDimensions.mySize.width * 0.8,

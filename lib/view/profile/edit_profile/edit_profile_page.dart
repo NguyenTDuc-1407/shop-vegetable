@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopvegetable/help/dimensions.dart';
+import 'package:shopvegetable/utils/image_path.dart';
+import 'package:shopvegetable/utils/text_app.dart';
 import 'package:shopvegetable/view/profile/edit_profile/edit_profile_controller.dart';
 
 class EditProfilePage extends GetView {
@@ -18,7 +20,7 @@ class EditProfilePage extends GetView {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Sửa hồ sơ",
+                TextApp.suaHoSo,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: MyDimensions.FONT_SIZE_H5,
@@ -39,7 +41,7 @@ class EditProfilePage extends GetView {
             child: Container(
               margin: EdgeInsets.all(MyDimensions.SPACE_SIZE_1X),
               child: Image.asset(
-                "assets/icons/back-ios.png",
+                ImagePath.back,
               ),
             ),
           ),
@@ -67,7 +69,7 @@ class EditProfilePage extends GetView {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Hình nền",
+                         TextApp.hinhNen,
                           style: TextStyle(fontSize: MyDimensions.FONT_SIZE_H6),
                         ),
                         InkWell(
@@ -75,7 +77,7 @@ class EditProfilePage extends GetView {
                             controller.pickImage();
                           },
                           child: Text(
-                            "Chỉnh sửa",
+                            TextApp.chinhSua,
                             style: TextStyle(
                                 fontSize: MyDimensions.FONT_SIZE_H6,
                                 color: Colors.blue),
@@ -113,7 +115,7 @@ class EditProfilePage extends GetView {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Ảnh đại diện",
+                          TextApp.anhDaiDien,
                           style: TextStyle(fontSize: MyDimensions.FONT_SIZE_H6),
                         ),
                         InkWell(
@@ -121,7 +123,7 @@ class EditProfilePage extends GetView {
                             controller.pickImage();
                           },
                           child: Text(
-                            "Chỉnh sửa",
+                            TextApp.chinhSua,
                             style: TextStyle(
                                 fontSize: MyDimensions.FONT_SIZE_H6,
                                 color: Colors.blue),
@@ -171,7 +173,7 @@ class EditProfilePage extends GetView {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Thông tin cá nhân",
+                         TextApp.thongTinCaNhan,
                           style: TextStyle(fontSize: MyDimensions.FONT_SIZE_H6),
                         ),
                         InkWell(
@@ -179,7 +181,7 @@ class EditProfilePage extends GetView {
                             controller.onEditDetailPage();
                           },
                           child: Text(
-                            "Chỉnh sửa",
+                            TextApp.chinhSua,
                             style: TextStyle(
                                 fontSize: MyDimensions.FONT_SIZE_H6,
                                 color: Colors.blue),

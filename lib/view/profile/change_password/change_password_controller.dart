@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_overrides
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shopvegetable/routers/router_child/edit_profile_router.dart';
@@ -48,10 +50,14 @@ class ChangePasswordController extends GetxController {
 
   void onAccessChangePassword() {
     Get.toNamed(EditProflieRouter.home);
-      
   }
 
   void onBack() {
     Get.back();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
   }
 }

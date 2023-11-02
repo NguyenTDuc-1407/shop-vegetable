@@ -3,17 +3,19 @@
 import 'package:get/get.dart';
 import 'package:shopvegetable/routers/router_child/edit_profile_router.dart';
 import 'package:shopvegetable/routers/router_child/home_router.dart';
+import 'package:shopvegetable/utils/image_path.dart';
+import 'package:shopvegetable/utils/text_app.dart';
 
 class ProfileController extends GetxController {
   List profile = [
     {
-      "icon": "assets/icons/edit.png",
-      "title": "chỉnh sửa thông tin cá nhân",
+      "icon": ImagePath.edit,
+      "title": TextApp.chinhSuaThongTinCaNhan,
       "page": HomeRouter.edit_profile,
     },
     {
-      "icon": "assets/icons/change-password.png",
-      "title": "đổi mật khẩu",
+      "icon": ImagePath.changePassword,
+      "title": TextApp.doiMatKhau,
       "page": EditProflieRouter.change_password,
     },
     // {
