@@ -426,8 +426,7 @@ class HomePage extends GetView {
                                                           .spaceBetween,
                                                   children: [
                                                     Text(
-                                                      controller
-                                                              .homeItem[index]
+                                                      controller.homeItem[index]
                                                           ["price"],
                                                       style: TextStyle(
                                                           fontSize: MyDimensions
