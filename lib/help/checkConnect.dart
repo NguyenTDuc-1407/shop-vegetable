@@ -18,7 +18,9 @@ class CheckConnect extends GetxController {
     if (connectivityResult == ConnectivityResult.none) {
       // Get.toNamed(FirstRouter.None_internet);
       Get.rawSnackbar(
+        borderRadius: MyDimensions.BORDER_RADIUS_4X,
         snackPosition: SnackPosition.TOP,
+        margin: EdgeInsets.symmetric(horizontal: MyDimensions.SPACE_SIZE_5X),
         messageText: Text(
           'MẤT KẾT NỐI INTERNET',
           style: TextStyle(
@@ -34,7 +36,6 @@ class CheckConnect extends GetxController {
           color: Colors.white,
           size: MyDimensions.FONT_SIZE_H6,
         ),
-        margin: EdgeInsets.zero,
         snackStyle: SnackStyle.FLOATING,
       );
     } else {

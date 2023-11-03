@@ -1,7 +1,7 @@
 // ignore_for_file: unused_field
 
 import 'package:get_it/get_it.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shopvegetable/data/dio/dio_client.dart';
 import 'package:shopvegetable/data/reponsitories/user_reponsitories.dart';
 import 'package:shopvegetable/help/size.dart';
