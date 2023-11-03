@@ -22,4 +22,5 @@ class TextApp {
   static String chinhSua = "Chỉnh sửa";
   static String anhDaiDien = "Ảnh đại diện";
   static String thongTinCaNhan = "Thông tin cá nhân";
+  static String dangXuat = "Đăng xuất";
 }

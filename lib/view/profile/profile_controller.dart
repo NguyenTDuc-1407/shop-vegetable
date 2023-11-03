@@ -18,11 +18,6 @@ class ProfileController extends GetxController {
       "title": TextApp.doiMatKhau,
       "page": EditProflieRouter.change_password,
     },
-    // {
-    //   "icon": "assets/icons/logout.png",
-    //   "title": "Đăng suất",
-    //   "page": "",
-    // },
   ];
   List user = [
     {
@@ -36,6 +31,10 @@ class ProfileController extends GetxController {
   ];
   void onNextPage(int index) {
     Get.toNamed(profile[index]["page"], arguments: [user]);
+  }
+
+  void onLogOut() {
+    Get.toNamed(EditProflieRouter.Login_with_password);
   }
 
   @override

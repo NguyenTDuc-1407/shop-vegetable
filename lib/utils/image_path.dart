@@ -6,5 +6,6 @@ class ImagePath {
   static String sqlash = 'assets/images/sql_1.png';
   // edit profile
   static String edit = 'assets/icons/edit.png';
-  static String changePassword = "assets/icons/change-password.png";
+  static String changePassword = 'assets/icons/change-password.png';
+  static String logout = 'assets/icons/logout.png';
 }

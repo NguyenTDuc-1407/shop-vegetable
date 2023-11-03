@@ -2,8 +2,8 @@
 
 import 'package:flutter/cupertino.dart';
 
-const String BASE_URL = 'https://boconganhvillages.com/';
-const String BASE_URL_IMAGE = 'https://boconganhvillages.com/';
+const String BASE_URL = 'https://jsonplaceholder.typicode.com/';
+// const String BASE_URL_IMAGE = 'https://boconganhvillages.com/';
 const String SOCKET_URL = 'wss://socket1.crudcode.tk';
 
 const String notificationChannelId = 'dpfood_customer_channel';

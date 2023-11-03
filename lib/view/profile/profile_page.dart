@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopvegetable/utils/image_path.dart';
+import 'package:shopvegetable/utils/text_app.dart';
 import 'package:shopvegetable/view/profile/profile_controller.dart';
 
 import '../../help/dimensions.dart';
@@ -42,6 +44,28 @@ class ProfilePage extends GetView {
                 controller.profile.length,
                 // các nút chỉnh sửa
                 (index) => listButton(controller, index),
+              ),
+              InkWell(
+                onTap: () {
+                  controller.onLogOut();
+                },
+                child: Container(
+                  margin: EdgeInsets.only(top: MyDimensions.BORDER_RADIUS_4X),
+                  color: Colors.white,
+                  child: ListTile(
+                    leading: Image.asset(
+                      ImagePath.logout,
+                      height: MyDimensions.SPACE_SIZE_5X * 1.5,
+                      width: MyDimensions.SPACE_SIZE_5X * 1.5,
+                    ),
+                    title: Text(
+                      TextApp.dangXuat,
+                      style: TextStyle(
+                          fontSize: MyDimensions.FONT_SIZE_H5,
+                          overflow: TextOverflow.ellipsis),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),

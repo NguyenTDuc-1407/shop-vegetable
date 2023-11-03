@@ -2,6 +2,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
+import 'package:shopvegetable/provider/user_provider.dart';
 import 'package:shopvegetable/routers/router_child/login_with_password_router.dart';
 
 class LoginWithPasswordController extends GetxController {
@@ -10,6 +12,7 @@ class LoginWithPasswordController extends GetxController {
   var inputPassword = true.obs;
   var checkBox = true.obs;
   var iconPassword = false;
+  final UserProvider _userProvider = GetIt.I.get<UserProvider>();
   String email = '';
   String password = '';
 
@@ -17,6 +20,7 @@ class LoginWithPasswordController extends GetxController {
   void onInit() {
     checkInputPassword.text;
     inputPassword.value;
+    getAllUser();
     super.onInit();
   }
 
@@ -51,6 +55,17 @@ class LoginWithPasswordController extends GetxController {
 
   void onNextPageHome() {
     Get.toNamed(LoginWithPasswordRouter.home);
+  }
+
+  void getAllUser() {
+    _userProvider.AllUser(
+      onSuccess: (posts) {
+        for (var i in posts) {
+          print(i.title);
+        }
+      },
+      onError: (error) {},
+    );
   }
 
   @override

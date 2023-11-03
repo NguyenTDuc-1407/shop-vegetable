@@ -9,12 +9,15 @@ import 'package:shopvegetable/view/profile/edit_profile/edit_profile_page.dart';
 
 import '../../view/bottom_bar/bottom_bar_binding.dart';
 import '../../view/bottom_bar/bottom_bar_page.dart';
+import '../../view/login_with_password/login_with_password_binding.dart';
+import '../../view/login_with_password/login_with_password_page.dart';
 
 class EditProflieRouter {
   static const String edit_profile = '/edit-profile';
   static const String detail_edit_profile = '/edit-detail-profile';
   static const String change_password = '/change-password';
   static const String home = '/home';
+  static const String Login_with_password = '/Login-with-password';
 
   static List<GetPage> list = [
     GetPage(
@@ -36,6 +39,11 @@ class EditProflieRouter {
       name: home,
       page: () => const BottomBarPage(),
       binding: BottomBarBinding(),
+    ),
+    GetPage(
+      name: Login_with_password,
+      page: () => const LoginWithPasswordPage(),
+      binding: LoginWithPasswordBinding(),
     ),
   ];
 }
