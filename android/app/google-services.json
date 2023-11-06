@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "490861874939",
+    "project_id": "notification-71e0f",
+    "storage_bucket": "notification-71e0f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490861874939:android:1eaf27f97dacac74d9ea5e",
+        "android_client_info": {
+          "package_name": "com.example.shopvegetable"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCra3cm4JZVK58a-hSDI0lOjKE4CRTHxtc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
