@@ -1,10 +1,12 @@
 // ignore_for_file: unnecessary_overrides, avoid_print
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shopvegetable/provider/user_provider.dart';
 import 'package:shopvegetable/routers/router_child/login_with_password_router.dart';
+import 'package:shopvegetable/utils/notification.dart';
 
 class LoginWithPasswordController extends GetxController {
   var checkInputEmail = TextEditingController();
@@ -21,6 +23,9 @@ class LoginWithPasswordController extends GetxController {
     checkInputPassword.text;
     inputPassword.value;
     getAllUser();
+    FirebaseMessaging.onMessage.listen((messsage) {
+      sendNotification();
+    });
     super.onInit();
   }
 
@@ -66,6 +71,10 @@ class LoginWithPasswordController extends GetxController {
       },
       onError: (error) {},
     );
+  }
+
+  void showNotification() {
+    sendNotification(title: "testt", body: "okasfasasdadadasdascb asdfafsa");
   }
 
   @override

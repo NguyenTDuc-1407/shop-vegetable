@@ -1,7 +1,6 @@
 // ignore_for_file: unnecessary_overrides
 
 import 'dart:async';
-
 import 'package:get/get.dart';
 import 'package:shopvegetable/routers/router_child/first_router.dart';
 

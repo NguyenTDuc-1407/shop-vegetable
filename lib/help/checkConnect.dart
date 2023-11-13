@@ -16,11 +16,13 @@ class CheckConnect extends GetxController {
 
   void _updateConnectionStatus(ConnectivityResult connectivityResult) {
     if (connectivityResult == ConnectivityResult.none) {
-      // Get.toNamed(FirstRouter.None_internet);
       Get.rawSnackbar(
         borderRadius: MyDimensions.BORDER_RADIUS_4X,
-        snackPosition: SnackPosition.TOP,
-        margin: EdgeInsets.symmetric(horizontal: MyDimensions.SPACE_SIZE_5X),
+        snackPosition: SnackPosition.BOTTOM,
+        margin: EdgeInsets.symmetric(
+          horizontal: MyDimensions.SPACE_SIZE_3X,
+          vertical: MyDimensions.SPACE_SIZE_5X,
+        ),
         messageText: Text(
           'MẤT KẾT NỐI INTERNET',
           style: TextStyle(
@@ -40,7 +42,6 @@ class CheckConnect extends GetxController {
       );
     } else {
       if (Get.isSnackbarOpen) {
-        // Get.toNamed(SqlashRouter.Sqlash_Page);
         Get.closeCurrentSnackbar();
       }
     }
