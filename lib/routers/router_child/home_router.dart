@@ -7,6 +7,8 @@ import 'package:shopvegetable/view/cart/cart_binding.dart';
 import 'package:shopvegetable/view/cart/cart_page.dart';
 import 'package:shopvegetable/view/detail_item/detail_item_binding.dart';
 import 'package:shopvegetable/view/detail_item/detail_item_page.dart';
+import 'package:shopvegetable/view/notification/detail_notification/detail_notification_page.dart';
+import 'package:shopvegetable/view/notification/detail_notification/detail_notification_binding.dart';
 import 'package:shopvegetable/view/profile/edit_profile/edit_profile_binding.dart';
 import 'package:shopvegetable/view/profile/edit_profile/edit_profile_page.dart';
 import 'package:shopvegetable/view/search_item/detail_type_item/detail_type_item_binding.dart';
@@ -18,6 +20,7 @@ class HomeRouter {
   static const String edit_profile = '/edit-profile';
   static const String detail_item = '/detail-item';
   static const String detail_type_item = '/detail-type-item';
+  static const String detail_notification = '/detail-notification';
 
   static List<GetPage> list = [
     GetPage(
@@ -44,6 +47,11 @@ class HomeRouter {
       name: detail_type_item,
       page: () => const DetailTypeItemPage(),
       binding: DetailTypeItemBinding(),
-    )
+    ),
+    GetPage(
+      name: detail_notification,
+      page: () => const DetailNotificationPage(),
+      binding: DetailNotificationBinding(),
+    ),
   ];
 }

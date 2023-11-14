@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:shopvegetable/routers/router_child/cart_router.dart';
 import 'package:shopvegetable/routers/router_child/choice_login_router.dart';
+import 'package:shopvegetable/routers/router_child/payment.dart';
 import 'package:shopvegetable/routers/router_child/edit_profile_router.dart';
 import 'package:shopvegetable/routers/router_child/first_router.dart';
 import 'package:shopvegetable/routers/router_child/forget_password_router.dart';
@@ -22,5 +23,6 @@ class AppPages {
     ...HomeRouter.list,
     ...CartRouter.list,
     ...EditProflieRouter.list,
+    ...PaymentRouter.list,
   ];
 }

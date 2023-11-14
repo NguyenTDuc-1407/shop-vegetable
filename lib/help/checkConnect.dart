@@ -17,26 +17,26 @@ class CheckConnect extends GetxController {
   void _updateConnectionStatus(ConnectivityResult connectivityResult) {
     if (connectivityResult == ConnectivityResult.none) {
       Get.rawSnackbar(
-        borderRadius: MyDimensions.BORDER_RADIUS_4X,
+        // borderRadius: MyDimensions.BORDER_RADIUS_4X,
         snackPosition: SnackPosition.BOTTOM,
         margin: EdgeInsets.symmetric(
           horizontal: MyDimensions.SPACE_SIZE_3X,
-          vertical: MyDimensions.SPACE_SIZE_5X,
+          vertical: MyDimensions.SPACE_SIZE_2X,
         ),
         messageText: Text(
           'MẤT KẾT NỐI INTERNET',
           style: TextStyle(
             color: Colors.white,
-            fontSize: MyDimensions.FONT_SIZE_H6,
+            fontSize: MyDimensions.FONT_SIZE_SPAN,
           ),
         ),
         isDismissible: false,
         duration: const Duration(days: 1),
-        backgroundColor: Colors.teal,
+        // backgroundColor: Colors.teal,
         icon: Icon(
           Icons.wifi_off,
           color: Colors.white,
-          size: MyDimensions.FONT_SIZE_H6,
+          size: MyDimensions.FONT_SIZE_SPAN,
         ),
         snackStyle: SnackStyle.FLOATING,
       );

@@ -2,6 +2,7 @@
 
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:shopvegetable/routers/router_child/payment.dart';
 
 import '../../routers/router_child/home_router.dart';
 
@@ -15,6 +16,7 @@ class DetailItemController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    detailItem;
     checkCartItem();
   }
 
@@ -46,6 +48,10 @@ class DetailItemController extends GetxController {
 
   void onNextPageCart() {
     Get.toNamed(HomeRouter.cart, arguments: [CartItem]);
+  }
+
+  void onNextPagePayment() {
+    Get.toNamed(PaymentRouter.choice_payment);
   }
 
   @override

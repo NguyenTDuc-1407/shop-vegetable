@@ -9,7 +9,6 @@ import 'package:shopvegetable/view/sqlash/sqlash_page.dart';
 class FirstRouter {
   static const String Fisrt_Page = '/';
   static const String Sqlash_Page = '/sqlash';
-  static const String None_internet = '/No-connect-internet';
 
   static List<GetPage> list = [
     GetPage(

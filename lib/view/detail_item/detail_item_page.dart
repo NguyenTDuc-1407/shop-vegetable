@@ -497,15 +497,20 @@ class DetailItemPage extends GetView {
                     )
                   ],
                 )),
-                Container(
-                  color: Colors.teal,
-                  width: MyDimensions.mySize.width * 0.5,
-                  child: Center(
-                    child: Text(
-                      "Mua ngay",
-                      style: TextStyle(
-                          fontSize: MyDimensions.FONT_SIZE_H4,
-                          fontWeight: FontWeight.w500),
+                InkWell(
+                  onTap: () {
+                    controller.onNextPagePayment();
+                  },
+                  child: Container(
+                    color: Colors.teal,
+                    width: MyDimensions.mySize.width * 0.5,
+                    child: Center(
+                      child: Text(
+                        "Mua ngay",
+                        style: TextStyle(
+                            fontSize: MyDimensions.FONT_SIZE_H4,
+                            fontWeight: FontWeight.w500),
+                      ),
                     ),
                   ),
                 ),

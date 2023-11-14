@@ -23,4 +23,9 @@ class TextApp {
   static String anhDaiDien = "Ảnh đại diện";
   static String thongTinCaNhan = "Thông tin cá nhân";
   static String dangXuat = "Đăng xuất";
+  static String phuongThucThanhToan = "Phương thức thanh toán";
+  static String chonPhuongThucThanhToan = "Chọn phương thức thanh toán";
+  static String lienKetPhuongThucThanhToan = "Liên kết phương thức thanh toán";
+  static String xacNhanPhuongThucThanhToan = "Xác nhận phương thức thanh toán";
+  static String kiemTraThongTinThanhToan = "Kiểm tra thông tin thanh toán";
 }
