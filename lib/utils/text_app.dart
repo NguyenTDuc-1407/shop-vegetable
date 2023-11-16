@@ -28,4 +28,8 @@ class TextApp {
   static String lienKetPhuongThucThanhToan = "Liên kết phương thức thanh toán";
   static String xacNhanPhuongThucThanhToan = "Xác nhận phương thức thanh toán";
   static String kiemTraThongTinThanhToan = "Kiểm tra thông tin thanh toán";
+  static String tenNguoiNhan = "Tên người nhận";
+  static String diaChi = "Địa chỉ nhận hàng";
+  static String std = "Số điện thoại";
+  static String danhSachDonHang = "Danh sách đơn hàng";
 }

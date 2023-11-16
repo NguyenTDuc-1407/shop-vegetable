@@ -1,7 +1,6 @@
 // ignore_for_file: unnecessary_overrides, avoid_print
-
 // import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shopvegetable/provider/user_provider.dart';
@@ -58,7 +57,7 @@ class LoginWithPasswordController extends GetxController {
     Get.toNamed(LoginWithPasswordRouter.Choice_login_Page);
   }
 
-  void onNextPageHome() {
+  void onNextPageHome() async {
     Get.toNamed(LoginWithPasswordRouter.home);
   }
 

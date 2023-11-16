@@ -13,7 +13,9 @@ class LoginWithPasswordPage extends GetView {
     return GetBuilder(
       init: LoginWithPasswordController(),
       builder: (LoginWithPasswordController controller) => GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.white,

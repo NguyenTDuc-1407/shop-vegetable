@@ -355,7 +355,7 @@ class HomePage extends GetView {
                             top: MyDimensions.SPACE_SIZE_1X,
                             left: MyDimensions.SPACE_SIZE_2X,
                             right: MyDimensions.SPACE_SIZE_2X),
-                        height: MyDimensions.mySize.height * 0.85,
+                        height: MyDimensions.mySize.height * 0.75,
                         child: GridView(
                           padding: const EdgeInsets.all(0),
                           physics: const NeverScrollableScrollPhysics(),

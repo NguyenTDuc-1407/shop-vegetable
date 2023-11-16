@@ -74,7 +74,11 @@ class PaymentPage extends GetView {
                           controller.choicePayment(index);
                         },
                       ),
-                      Text(controller.payment[index]),
+                      Expanded(
+                        child: Text(
+                          controller.payment[index],
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -117,7 +121,7 @@ class PaymentPage extends GetView {
                   },
                   child: Container(
                     margin: EdgeInsets.only(
-                        top: MyDimensions.SPACE_SIZE_1X,
+                        top: MyDimensions.SPACE_SIZE_3X,
                         bottom: MyDimensions.SPACE_SIZE_4X),
                     height: MyDimensions.SPACE_SIZE_5X * 2.7,
                     width: MyDimensions.mySize.width * 0.8,

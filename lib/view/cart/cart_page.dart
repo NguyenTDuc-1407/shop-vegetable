@@ -262,28 +262,33 @@ class CartPage extends GetView {
                       ],
                     ),
                   ),
-                  Container(
-                    color: Colors.teal,
-                    width: MyDimensions.mySize.width * 0.3,
-                    child: Center(
-                      child: RichText(
-                        text: TextSpan(
-                          text: "Mua hàng ",
-                          style: TextStyle(
-                            fontSize: MyDimensions.FONT_SIZE_H6,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
-                          ),
-                          children: [
-                            TextSpan(
-                              text: controller.item.toString(),
-                              style: TextStyle(
-                                fontSize: MyDimensions.FONT_SIZE_SPAN,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black,
-                              ),
+                  InkWell(
+                    onTap: () {
+                      controller.onNextPagePayment();
+                    },
+                    child: Container(
+                      color: Colors.teal,
+                      width: MyDimensions.mySize.width * 0.3,
+                      child: Center(
+                        child: RichText(
+                          text: TextSpan(
+                            text: "Mua hàng ",
+                            style: TextStyle(
+                              fontSize: MyDimensions.FONT_SIZE_H6,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black,
                             ),
-                          ],
+                            children: [
+                              TextSpan(
+                                text: controller.item.toString(),
+                                style: TextStyle(
+                                  fontSize: MyDimensions.FONT_SIZE_SPAN,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

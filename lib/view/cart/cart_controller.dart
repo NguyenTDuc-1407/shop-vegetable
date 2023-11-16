@@ -2,12 +2,28 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
+
+import '../../provider/item_provider.dart';
+import '../../routers/router_child/payment.dart';
 
 class CartController extends GetxController {
   bool checkBox = false;
   int item = 0;
   var InputQuatity = TextEditingController();
   List cartItem = Get.arguments[0];
+  ItemProvider itemProvider = GetIt.I.get<ItemProvider>();
+
+  @override
+  void onInit() {
+    addItem();
+    super.onInit();
+  }
+
+  void addItem() {
+    itemProvider.Item = cartItem;
+    update();
+  }
 
   void onCheckBox() {
     checkBox = !checkBox;
@@ -46,6 +62,10 @@ class CartController extends GetxController {
 
   void onBack() {
     Get.back();
+  }
+
+  void onNextPagePayment() {
+    Get.toNamed(PaymentRouter.choice_payment);
   }
 
   @override

@@ -13,40 +13,229 @@ class DetailPaymentPage extends GetView {
   Widget build(BuildContext context) {
     return GetBuilder(
       init: DetailPaymentController(),
-      builder: (DetailPaymentController controller) => Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.white,
-          centerTitle: true,
-          title: Text(
-            TextApp.kiemTraThongTinThanhToan,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: MyDimensions.FONT_SIZE_H5,
+      builder: (DetailPaymentController controller) => GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.white,
+            centerTitle: true,
+            title: Text(
+              TextApp.kiemTraThongTinThanhToan,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: MyDimensions.FONT_SIZE_H5,
+              ),
+            ),
+            leading: InkWell(
+              onTap: () {
+                controller.onBack();
+              },
+              child: Container(
+                margin: EdgeInsets.all(MyDimensions.SPACE_SIZE_1X),
+                child: Image.asset(
+                  ImagePath.back,
+                ),
+              ),
             ),
           ),
-          leading: InkWell(
-            onTap: () {
-              controller.onBack();
-            },
+          body: SingleChildScrollView(
             child: Container(
-              margin: EdgeInsets.all(MyDimensions.SPACE_SIZE_1X),
-              child: Image.asset(
-                ImagePath.back,
+              margin: EdgeInsets.only(
+                top: MyDimensions.SPACE_SIZE_4X,
+                left: MyDimensions.SPACE_SIZE_5X * 1.5,
+                right: MyDimensions.SPACE_SIZE_5X * 1.5,
+                bottom: MyDimensions.SPACE_SIZE_5X,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    TextApp.tenNguoiNhan,
+                    style: TextStyle(fontSize: MyDimensions.FONT_SIZE_H6),
+                  ),
+                  Card(
+                    margin: EdgeInsets.only(
+                      top: MyDimensions.SPACE_SIZE_2X,
+                      bottom: MyDimensions.SPACE_SIZE_4X,
+                    ),
+                    shape: BeveledRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(MyDimensions.BORDER_RADIUS_1X),
+                    ),
+                    child: Padding(
+                      padding:
+                          EdgeInsets.only(left: MyDimensions.SPACE_SIZE_4X),
+                      child: TextField(
+                        // controller: controller.checkInputEmail,
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 74, 169, 188)),
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: TextApp.tenNguoiNhan,
+                          icon: const Icon(Icons.person),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Text(
+                    TextApp.std,
+                    style: TextStyle(fontSize: MyDimensions.FONT_SIZE_H6),
+                  ),
+                  Card(
+                    margin: EdgeInsets.only(
+                      top: MyDimensions.SPACE_SIZE_2X,
+                      bottom: MyDimensions.SPACE_SIZE_4X,
+                    ),
+                    shape: BeveledRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(MyDimensions.BORDER_RADIUS_1X),
+                    ),
+                    child: Padding(
+                      padding:
+                          EdgeInsets.only(left: MyDimensions.SPACE_SIZE_4X),
+                      child: TextField(
+                        // controller: controller.checkInputEmail,
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 74, 169, 188)),
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: TextApp.std,
+                          icon: const Icon(Icons.phone),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Text(
+                    TextApp.diaChi,
+                    style: TextStyle(fontSize: MyDimensions.FONT_SIZE_H6),
+                  ),
+                  Card(
+                    margin: EdgeInsets.only(
+                      top: MyDimensions.SPACE_SIZE_2X,
+                      bottom: MyDimensions.SPACE_SIZE_4X,
+                    ),
+                    shape: BeveledRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(MyDimensions.BORDER_RADIUS_1X),
+                    ),
+                    child: Padding(
+                      padding:
+                          EdgeInsets.only(left: MyDimensions.SPACE_SIZE_4X),
+                      child: TextField(
+                        // controller: controller.checkInputEmail,
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 74, 169, 188)),
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: TextApp.diaChi,
+                          icon: const Icon(Icons.location_city),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(bottom: MyDimensions.SPACE_SIZE_4X),
+                    child: RichText(
+                      text: TextSpan(
+                        text: TextApp.phuongThucThanhToan,
+                        style: TextStyle(
+                            fontSize: MyDimensions.FONT_SIZE_H6,
+                            color: Colors.black),
+                        children: [
+                          TextSpan(
+                            text: ": ",
+                            style: TextStyle(
+                                fontSize: MyDimensions.FONT_SIZE_SPAN,
+                                color: Colors.black),
+                          ),
+                          TextSpan(
+                            text: controller.paychoice,
+                            style: TextStyle(
+                                fontSize: MyDimensions.FONT_SIZE_SPAN,
+                                color: Colors.black),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Text(
+                    TextApp.danhSachDonHang,
+                    style: TextStyle(fontSize: MyDimensions.FONT_SIZE_H6),
+                  ),
+                  SizedBox(
+                    height: MyDimensions.SPACE_SIZE_4X,
+                  ),
+                  ...List.generate(
+                    controller.itemList.length,
+                    (index) => Container(
+                      color: Colors.teal,
+                      child: Row(
+                        children: [
+                          SizedBox(
+                              height: MyDimensions.SPACE_SIZE_5X * 5,
+                              width: MyDimensions.SPACE_SIZE_5X * 4,
+                              child: Image.asset(
+                                  controller.itemList[index]["image"])),
+                          Container(
+                            margin: EdgeInsets.only(
+                              top: MyDimensions.SPACE_SIZE_5X,
+                              left: MyDimensions.SPACE_SIZE_3X,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  width: MyDimensions.mySize.width * 0.6,
+                                  child: Text(
+                                    controller.itemList[index]["title"],
+                                    style: TextStyle(
+                                      fontSize: MyDimensions.FONT_SIZE_H1,
+                                      fontWeight: FontWeight.w500,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.symmetric(
+                                      vertical: MyDimensions.SPACE_SIZE_2X),
+                                  child: Text(
+                                    controller.itemList[index]["price"],
+                                    style: TextStyle(
+                                        fontSize: MyDimensions.FONT_SIZE_H6),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: MyDimensions.SPACE_SIZE_5X * 8,
+                                  height: MyDimensions.SPACE_SIZE_5X * 1.4,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        controller.itemList[index]["quatity"]
+                                            .toString(),
+                                        style: TextStyle(
+                                            fontSize:
+                                                MyDimensions.FONT_SIZE_SPAN),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
               ),
             ),
-          ),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                height: MyDimensions.SPACE_SIZE_5X,
-                width: MyDimensions.SPACE_SIZE_5X,
-                color: Colors.teal,
-              ),
-            ],
           ),
         ),
       ),
