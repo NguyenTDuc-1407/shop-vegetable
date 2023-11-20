@@ -64,10 +64,16 @@ class LoginWithPasswordPage extends GetView {
                         style: const TextStyle(
                             color: Color.fromARGB(255, 74, 169, 188)),
                         keyboardType: TextInputType.emailAddress,
-                        decoration: const InputDecoration(
+                        onChanged: (value) {
+                          controller.onCheckEmail(value);
+                        },
+                        decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: "Email",
-                          icon: Icon(Icons.email),
+                          icon: const Icon(Icons.email),
+                          errorText: controller.checkEmail
+                              ? null
+                              : "vui lòng nhập email",
                         ),
                       ),
                     ),
@@ -97,6 +103,9 @@ class LoginWithPasswordPage extends GetView {
                             border: InputBorder.none,
                             hintText: "Password",
                             icon: const Icon(Icons.lock),
+                            errorText: controller.inputPassword.value
+                                ? null
+                                : "vui lòng nhập password",
                             suffixIcon: Visibility(
                               visible: controller.iconPassword,
                               child: IconButton(

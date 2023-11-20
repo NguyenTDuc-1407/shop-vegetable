@@ -32,4 +32,5 @@ class TextApp {
   static String diaChi = "Địa chỉ nhận hàng";
   static String std = "Số điện thoại";
   static String danhSachDonHang = "Danh sách đơn hàng";
+  static String soLuong = "Số lượng:";
 }

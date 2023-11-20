@@ -68,10 +68,10 @@ class DetailPaymentPage extends GetView {
                       padding:
                           EdgeInsets.only(left: MyDimensions.SPACE_SIZE_4X),
                       child: TextField(
-                        // controller: controller.checkInputEmail,
+                        controller: controller.inputName,
                         style: const TextStyle(
                             color: Color.fromARGB(255, 74, 169, 188)),
-                        keyboardType: TextInputType.emailAddress,
+                        keyboardType: TextInputType.name,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: TextApp.tenNguoiNhan,
@@ -97,10 +97,10 @@ class DetailPaymentPage extends GetView {
                       padding:
                           EdgeInsets.only(left: MyDimensions.SPACE_SIZE_4X),
                       child: TextField(
-                        // controller: controller.checkInputEmail,
+                        controller: controller.inputPhoneNumber,
                         style: const TextStyle(
                             color: Color.fromARGB(255, 74, 169, 188)),
-                        keyboardType: TextInputType.emailAddress,
+                        keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: TextApp.std,
@@ -126,10 +126,10 @@ class DetailPaymentPage extends GetView {
                       padding:
                           EdgeInsets.only(left: MyDimensions.SPACE_SIZE_4X),
                       child: TextField(
-                        // controller: controller.checkInputEmail,
+                        controller: controller.inputLocation,
                         style: const TextStyle(
                             color: Color.fromARGB(255, 74, 169, 188)),
-                        keyboardType: TextInputType.emailAddress,
+                        keyboardType: TextInputType.name,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: TextApp.diaChi,
@@ -173,7 +173,10 @@ class DetailPaymentPage extends GetView {
                   ...List.generate(
                     controller.itemList.length,
                     (index) => Container(
-                      color: Colors.teal,
+                      margin:
+                          EdgeInsets.only(bottom: MyDimensions.SPACE_SIZE_3X),
+                      decoration:
+                          BoxDecoration(border: Border.all(color: Colors.grey)),
                       child: Row(
                         children: [
                           SizedBox(
@@ -202,26 +205,40 @@ class DetailPaymentPage extends GetView {
                                 ),
                                 Container(
                                   margin: EdgeInsets.symmetric(
-                                      vertical: MyDimensions.SPACE_SIZE_2X),
+                                      vertical:
+                                          MyDimensions.SPACE_SIZE_1X * 1.5),
                                   child: Text(
                                     controller.itemList[index]["price"],
                                     style: TextStyle(
                                         fontSize: MyDimensions.FONT_SIZE_H6),
                                   ),
                                 ),
-                                SizedBox(
-                                  width: MyDimensions.SPACE_SIZE_5X * 8,
-                                  height: MyDimensions.SPACE_SIZE_5X * 1.4,
+                                Container(
+                                  margin: EdgeInsets.only(
+                                      bottom: MyDimensions.SPACE_SIZE_2X),
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        controller.itemList[index]["quatity"]
-                                            .toString(),
+                                        TextApp.soLuong,
                                         style: TextStyle(
                                             fontSize:
                                                 MyDimensions.FONT_SIZE_SPAN),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(
+                                            left: MyDimensions.SPACE_SIZE_1X *
+                                                0.5),
+                                        child: Text(
+                                          controller.itemList[index]["quatity"]
+                                              .toString(),
+                                          style: TextStyle(
+                                            fontSize:
+                                                MyDimensions.FONT_SIZE_SPAN,
+                                            overflow: TextOverflow.visible,
+                                          ),
+                                        ),
                                       ),
                                     ],
                                   ),

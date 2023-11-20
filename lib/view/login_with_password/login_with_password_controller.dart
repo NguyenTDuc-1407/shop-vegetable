@@ -10,6 +10,7 @@ import 'package:shopvegetable/routers/router_child/login_with_password_router.da
 class LoginWithPasswordController extends GetxController {
   var checkInputEmail = TextEditingController();
   var checkInputPassword = TextEditingController();
+  var checkEmail = true;
   var inputPassword = true.obs;
   var checkBox = true.obs;
   var iconPassword = false;
@@ -19,8 +20,6 @@ class LoginWithPasswordController extends GetxController {
 
   @override
   void onInit() {
-    checkInputPassword.text;
-    inputPassword.value;
     getAllUser();
     // FirebaseMessaging.onMessage.listen((messsage) {
     //   sendNotification();
@@ -34,6 +33,22 @@ class LoginWithPasswordController extends GetxController {
 
   void actionCheckBox() {
     checkBox.value = !checkBox.value;
+  }
+
+  void onCheckEmail(String value) {
+    if (!isEmailValid(value)) {
+      print(isEmailValid(value));
+      checkEmail = false;
+    } else {
+      print(isEmailValid(value));
+      checkEmail = true;
+    }
+
+    update();
+  }
+
+  bool isEmailValid(String email) {
+    return RegExp(r'^[\w-\.]+@[a-zA-Z]+\.[a-zA-Z]{2,}$').hasMatch(email);
   }
 
   void actionIconPassword() {
@@ -58,7 +73,14 @@ class LoginWithPasswordController extends GetxController {
   }
 
   void onNextPageHome() async {
-    Get.toNamed(LoginWithPasswordRouter.home);
+    if (checkEmail == false && inputPassword.value == false) {
+      print("a");
+    } else {
+      Get.toNamed(LoginWithPasswordRouter.home);
+      print("b");
+    }
+
+    update();
   }
 
   void getAllUser() {
