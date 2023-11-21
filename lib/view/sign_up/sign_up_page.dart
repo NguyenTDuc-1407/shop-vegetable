@@ -99,14 +99,20 @@ class SignUpPage extends GetView {
   InkWell buttonSignUp(SignUpController controller, BuildContext context) {
     return InkWell(
       onTap: () {
-        showTopSnackBar(
-          Overlay.of(context),
-          const CustomSnackBar.info(
-            message: "Tạo tài khoản thành công",
-            backgroundColor: Colors.teal,
-          ),
+        Future.delayed(const Duration(milliseconds: 100)).then(
+          (value) {
+            showTopSnackBar(
+              Overlay.of(context),
+              CustomSnackBar.info(
+                message: controller.showInfomation
+                    ? "Tạo tài khoản thành công"
+                    : "Vui lòng kiểm tra lại thông tin",
+                backgroundColor: Colors.teal,
+              ),
+            );
+          },
         );
-        controller.onLoginPage();
+        controller.onNewAccount();
       },
       child: Container(
         height: MyDimensions.SPACE_SIZE_5X * 2.7,
@@ -149,6 +155,8 @@ class SignUpPage extends GetView {
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: "Config password",
+              errorText:
+                  controller.checkConfPass ? null : "vui lòng nhập password",
               icon: const Icon(Icons.lock),
               suffixIcon: Visibility(
                 visible: controller.iconConfiPass,
@@ -193,6 +201,8 @@ class SignUpPage extends GetView {
               border: InputBorder.none,
               hintText: "Password",
               icon: const Icon(Icons.lock),
+              errorText:
+                  controller.checkPassword ? null : "vui lòng nhập password",
               suffixIcon: Visibility(
                 visible: controller.iconPassword,
                 child: IconButton(
@@ -228,10 +238,14 @@ class SignUpPage extends GetView {
           controller: controller.checkInputEmail,
           style: const TextStyle(color: Color.fromARGB(255, 74, 169, 188)),
           keyboardType: TextInputType.emailAddress,
-          decoration: const InputDecoration(
+          onChanged: (value) {
+            controller.onCheckEmail(value);
+          },
+          decoration: InputDecoration(
             border: InputBorder.none,
             hintText: "Email",
-            icon: Icon(Icons.email),
+            icon: const Icon(Icons.email),
+            errorText: controller.checkEmail ? null : "vui lòng nhập email",
           ),
         ),
       ),

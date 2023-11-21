@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_is_empty, non_constant_identifier_names, unnecessary_overrides
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:share_plus/share_plus.dart';
@@ -8,6 +9,7 @@ import 'package:shopvegetable/routers/router_child/payment.dart';
 import '../../routers/router_child/home_router.dart';
 
 class DetailItemController extends GetxController {
+  var inputQuatity = TextEditingController();
   bool checkCart = false;
   bool hideText = false;
   var detailItem = Get.arguments[0];

@@ -254,6 +254,67 @@ class DetailPaymentPage extends GetView {
               ),
             ),
           ),
+          bottomNavigationBar: Container(
+            height: MyDimensions.mySize.height * 0.08,
+            decoration: const BoxDecoration(
+              color: Colors.grey,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(
+                      left: MyDimensions.SPACE_SIZE_1X,
+                      top: MyDimensions.SPACE_SIZE_2X),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            "Tổng thanh toán: ",
+                            style: TextStyle(
+                              fontSize: MyDimensions.FONT_SIZE_SPAN,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black,
+                            ),
+                            textAlign: TextAlign.right,
+                          ),
+                          Text(
+                            "0",
+                            style: TextStyle(
+                              fontSize: MyDimensions.FONT_SIZE_SPAN,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black,
+                            ),
+                            textAlign: TextAlign.right,
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    // controller.onNextPagePayment();
+                  },
+                  child: Container(
+                    color: Colors.teal,
+                    width: MyDimensions.mySize.width * 0.3,
+                    child: Center(
+                        child: Text(
+                      "Mua hàng ",
+                      style: TextStyle(
+                        fontSize: MyDimensions.FONT_SIZE_H6,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
+                      ),
+                    )),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

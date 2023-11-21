@@ -84,10 +84,16 @@ class ForgetPasswordPage extends StatelessWidget {
                           style: const TextStyle(
                               color: Color.fromARGB(255, 74, 169, 188)),
                           keyboardType: TextInputType.emailAddress,
-                          decoration: const InputDecoration(
+                          onChanged: (value) {
+                            controller.onCheckEmail(value);
+                          },
+                          decoration: InputDecoration(
+                            errorText: controller.checkEmail
+                                ? null
+                                : "vui lòng nhập email",
                             border: InputBorder.none,
                             hintText: "Email",
-                            icon: Icon(Icons.email),
+                            icon: const Icon(Icons.email),
                           ),
                         ),
                       ),

@@ -52,6 +52,7 @@ class LoginWithPasswordPage extends GetView {
                       right: MyDimensions.SPACE_SIZE_5X * 1.5,
                       left: MyDimensions.SPACE_SIZE_5X * 1.5,
                     ),
+                    elevation: 0,
                     shape: BeveledRectangleBorder(
                       borderRadius:
                           BorderRadius.circular(MyDimensions.BORDER_RADIUS_3X),
@@ -85,6 +86,7 @@ class LoginWithPasswordPage extends GetView {
                         right: MyDimensions.SPACE_SIZE_5X * 1.5,
                         left: MyDimensions.SPACE_SIZE_5X * 1.5,
                       ),
+                      elevation: 0,
                       shape: BeveledRectangleBorder(
                         borderRadius: BorderRadius.circular(
                             MyDimensions.BORDER_RADIUS_3X),
@@ -103,7 +105,7 @@ class LoginWithPasswordPage extends GetView {
                             border: InputBorder.none,
                             hintText: "Password",
                             icon: const Icon(Icons.lock),
-                            errorText: controller.inputPassword.value
+                            errorText: controller.checkPassword
                                 ? null
                                 : "vui lòng nhập password",
                             suffixIcon: Visibility(

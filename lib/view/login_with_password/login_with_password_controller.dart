@@ -11,6 +11,7 @@ class LoginWithPasswordController extends GetxController {
   var checkInputEmail = TextEditingController();
   var checkInputPassword = TextEditingController();
   var checkEmail = true;
+  var checkPassword = true;
   var inputPassword = true.obs;
   var checkBox = true.obs;
   var iconPassword = false;
@@ -37,13 +38,11 @@ class LoginWithPasswordController extends GetxController {
 
   void onCheckEmail(String value) {
     if (!isEmailValid(value)) {
-      print(isEmailValid(value));
       checkEmail = false;
     } else {
-      print(isEmailValid(value));
       checkEmail = true;
+      onCheckNullEmail();
     }
-
     update();
   }
 
@@ -54,8 +53,19 @@ class LoginWithPasswordController extends GetxController {
   void actionIconPassword() {
     if (checkInputPassword.text == '') {
       iconPassword = false;
+      checkPassword = false;
     } else {
       iconPassword = true;
+      checkPassword = true;
+    }
+    update();
+  }
+
+  void onCheckNullEmail() {
+    if (checkInputEmail.text == '') {
+      checkEmail = false;
+    } else {
+      checkEmail = true;
     }
     update();
   }
@@ -73,13 +83,15 @@ class LoginWithPasswordController extends GetxController {
   }
 
   void onNextPageHome() async {
-    if (checkEmail == false && inputPassword.value == false) {
-      print("a");
-    } else {
+    if (checkEmail == true &&
+        checkInputPassword.text != '' &&
+        checkInputEmail.text != '') {
+      checkInputEmail.clear();
+      checkInputPassword.clear();
       Get.toNamed(LoginWithPasswordRouter.home);
-      print("b");
-    }
-
+    } else {}
+    actionIconPassword();
+    onCheckNullEmail();
     update();
   }
 
