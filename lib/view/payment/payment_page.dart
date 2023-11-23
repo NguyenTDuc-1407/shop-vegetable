@@ -74,11 +74,15 @@ class PaymentPage extends GetView {
                           controller.choicePayment(index);
                         },
                       ),
-                      Expanded(
-                        child: Text(
-                          controller.payment[index],
-                        ),
+                      Image.asset(
+                        controller.payment[index]["icon"],
+                        height: MyDimensions.SPACE_SIZE_5X * 1.5,
+                        width: MyDimensions.SPACE_SIZE_5X * 1.5,
                       ),
+                      SizedBox(
+                        width: MyDimensions.SPACE_SIZE_2X,
+                      ),
+                      Expanded(child: Text(controller.payment[index]["pay"])),
                     ],
                   ),
                 ),

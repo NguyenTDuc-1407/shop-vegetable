@@ -1,9 +1,8 @@
-// ignore_for_file: non_constant_identifier_names, unnecessary_overrides, unnecessary_null_comparison
+// ignore_for_file: non_constant_identifier_names, unnecessary_overrides, unnecessary_null_comparison, prefer_is_empty
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
-
 import '../../provider/item_provider.dart';
 import '../../routers/router_child/payment.dart';
 
@@ -15,39 +14,52 @@ class CartController extends GetxController {
   List cartItem = Get.arguments[0];
   List payItem = [];
   ItemProvider itemProvider = GetIt.I.get<ItemProvider>();
-  bool data = false;
+  bool hideCart = false;
+  bool showdCart = false;
+  List typeItem = [];
+  var items = "";
 
   @override
   void onInit() {
     super.onInit();
-    // checkData();
-    // quatity();
+    checkData();
+    // onTypeItem();
   }
 
-  // void checkData() {
-  //   print(cartItem.runtimeType);
-  //   if (cartItem.runtimeType == [].runtimeType) {
-  //     data = true;
-  //     print(data);
-  //   } else {
-  //     data = false;
-  //     print(data);
-  //   }
-  //   update();
-  // }
+  void checkData() {
+    if (cartItem.length == 0) {
+      hideCart = true;
+    } else {
+      showdCart = true;
+    }
+    update();
+  }
 
-  // void quatity() {
+  // void quatity() {}
+  // void onTypeItem() {
+  //   var c = 0;
   //   for (var i in cartItem) {
-  //     inputQuatity.text = i["quatity"].toString();
-  //     print(inputQuatity.text);
+  //     typeItem.addAll({
+  //       i["type"],
+  //       [i]
+  //     });
+  //     for (var j in typeItem) {
+  //       if (i["type"] == j) {
+  //         c++;
+  //         print(c);
+  //         // if (c == 1) {
+  //         //   print(typeItem);
+  //         // }
+  //       }
+  //     }
   //   }
+  //   print(typeItem);
   //   update();
   // }
 
   void onCheckBox() {
     checkBox = !checkBox;
     for (var i in cartItem) {
-      i["checkbox"] = !i["checkbox"];
       if (checkBox == true) {
         i["checkbox"] = true;
         item = cartItem.length;
@@ -58,7 +70,11 @@ class CartController extends GetxController {
         itemProvider.Item = [];
       }
     }
+    update();
+  }
 
+  void onRemoveItemCart(int index) {
+    cartItem.removeAt(index);
     update();
   }
 
@@ -80,11 +96,13 @@ class CartController extends GetxController {
       payItem.remove(cartItem[index]);
       itemProvider.Item = payItem;
     }
-
     update();
   }
 
   void onBack() {
+    for (var i in cartItem) {
+      i["checkbox"] = false;
+    }
     Get.back();
   }
 

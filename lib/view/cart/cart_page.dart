@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopvegetable/help/dimensions.dart';
+import 'package:shopvegetable/utils/image_path.dart';
+import 'package:shopvegetable/utils/text_app.dart';
 import 'package:shopvegetable/view/cart/cart_controller.dart';
 
 class CartPage extends GetView {
@@ -31,167 +33,198 @@ class CartPage extends GetView {
                 const Text("Giỏ hàng", style: TextStyle(color: Colors.black)),
           ),
           body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(
-                child: ListView.builder(
-                  itemCount: controller.cartItem.length,
-                  itemBuilder: (context, index) => Container(
-                    margin: EdgeInsets.only(top: MyDimensions.SPACE_SIZE_5X),
-                    height: MyDimensions.mySize.height * 0.2,
-                    color: Colors.white,
+              Visibility(
+                visible: controller.hideCart,
+                child: Center(
+                  child: SizedBox(
+                    height: MyDimensions.mySize.height * 0.3,
+                    width: MyDimensions.mySize.height * 0.7,
                     child: Column(
                       children: [
-                        Container(
-                          height: MyDimensions.SPACE_SIZE_5X * 2,
-                          color: const Color.fromARGB(255, 255, 202, 123),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Checkbox(
-                                    activeColor: Colors.red,
-                                    value: controller.cartItem[index]
-                                        ["checkbox"],
-                                    onChanged: (value) {
-                                      controller.onCheckBoxId(index);
-                                    },
-                                  ),
-                                  const Text("asddd"),
-                                ],
-                              ),
-                              InkWell(
-                                onTap: () {},
-                                child: Container(
-                                  margin: EdgeInsets.only(
-                                      right: MyDimensions.SPACE_SIZE_4X),
-                                  child: const Text("xóa"),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Row(
-                            children: [
-                              Row(
-                                children: [
-                                  Checkbox(
-                                    activeColor: Colors.red,
-                                    value: controller.cartItem[index]
-                                        ["checkbox"],
-                                    onChanged: (value) {
-                                      controller.onCheckBoxId(index);
-                                    },
-                                  ),
-                                  SizedBox(
-                                      height: MyDimensions.SPACE_SIZE_5X * 5,
-                                      width: MyDimensions.SPACE_SIZE_5X * 4,
-                                      child: Image.asset(
-                                          controller.cartItem[index]["image"]))
-                                ],
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(
-                                  top: MyDimensions.SPACE_SIZE_5X,
-                                  left: MyDimensions.SPACE_SIZE_3X,
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                        Image.asset(ImagePath.noCart),
+                        Text(
+                          TextApp.gioHangTrong,
+                          style: TextStyle(
+                              fontSize: MyDimensions.FONT_SIZE_H3,
+                              fontWeight: FontWeight.w500),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Visibility(
+                visible: controller.showdCart,
+                child: Expanded(
+                  child: ListView.builder(
+                    itemCount: controller.cartItem.length,
+                    itemBuilder: (context, index) => Container(
+                      margin: EdgeInsets.only(top: MyDimensions.SPACE_SIZE_5X),
+                      height: MyDimensions.mySize.height * 0.2,
+                      color: Colors.white,
+                      child: Column(
+                        children: [
+                          Container(
+                            height: MyDimensions.SPACE_SIZE_5X * 2,
+                            color: const Color.fromARGB(255, 255, 202, 123),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
                                   children: [
-                                    SizedBox(
-                                      width: MyDimensions.mySize.width * 0.63,
-                                      child: Text(
-                                        controller.cartItem[index]["title"],
-                                        style: TextStyle(
-                                          fontSize: MyDimensions.FONT_SIZE_H1,
-                                          fontWeight: FontWeight.w500,
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      ),
+                                    Checkbox(
+                                      activeColor: Colors.red,
+                                      value: controller.cartItem[index]
+                                          ["checkbox"],
+                                      onChanged: (value) {
+                                        controller.onCheckBoxId(index);
+                                      },
                                     ),
-                                    Container(
-                                      margin: EdgeInsets.symmetric(
-                                          vertical: MyDimensions.SPACE_SIZE_2X),
-                                      child: Text(
-                                        controller.cartItem[index]["price"],
-                                        style: TextStyle(
-                                            fontSize:
-                                                MyDimensions.FONT_SIZE_H6),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: MyDimensions.SPACE_SIZE_5X * 1.4,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          InkWell(
-                                            onTap: () {},
-                                            child: Container(
-                                              width:
-                                                  MyDimensions.SPACE_SIZE_5X *
-                                                      2,
-                                              decoration: BoxDecoration(
-                                                border: Border.all(
-                                                  color: Colors.grey,
-                                                ),
-                                              ),
-                                              child: const Icon(Icons.add),
-                                            ),
-                                          ),
-                                          Container(
-                                            width:
-                                                MyDimensions.SPACE_SIZE_5X * 3,
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Colors.grey)),
-                                            child: TextField(
-                                              textAlign: TextAlign.center,
-                                              controller:
-                                                  controller.inputQuatity,
-                                              style: const TextStyle(
-                                                  color: Color.fromARGB(
-                                                      255, 74, 169, 188)),
-                                              keyboardType:
-                                                  TextInputType.number,
-                                              decoration: const InputDecoration(
-                                                border: InputBorder.none,
-                                              ),
-                                            ),
-                                          ),
-                                          // Text(
-                                          //   controller.cartItem[index]
-                                          //           ["quatity"]
-                                          //       .toString(),
-                                          //   style: TextStyle(
-                                          //       fontSize: MyDimensions
-                                          //           .FONT_SIZE_SPAN),
-                                          // ),
-                                          InkWell(
-                                            onTap: () {},
-                                            child: Container(
-                                              width:
-                                                  MyDimensions.SPACE_SIZE_5X *
-                                                      2,
-                                              decoration: BoxDecoration(
-                                                border: Border.all(
-                                                  color: Colors.grey,
-                                                ),
-                                              ),
-                                              child: const Icon(Icons.remove),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
+                                    Text(controller.cartItem[index]["type"]),
                                   ],
                                 ),
-                              ),
-                            ],
+                                InkWell(
+                                  onTap: () {
+                                    controller.onRemoveItemCart(index);
+                                  },
+                                  child: Container(
+                                    margin: EdgeInsets.only(
+                                        right: MyDimensions.SPACE_SIZE_4X),
+                                    child: const Text("xóa"),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                          Expanded(
+                            child: Row(
+                              children: [
+                                Row(
+                                  children: [
+                                    Checkbox(
+                                      activeColor: Colors.red,
+                                      value: controller.cartItem[index]
+                                          ["checkbox"],
+                                      onChanged: (value) {
+                                        controller.onCheckBoxId(index);
+                                      },
+                                    ),
+                                    SizedBox(
+                                        height: MyDimensions.SPACE_SIZE_5X * 5,
+                                        width: MyDimensions.SPACE_SIZE_5X * 4,
+                                        child: Image.asset(controller
+                                            .cartItem[index]["image"]))
+                                  ],
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(
+                                    top: MyDimensions.SPACE_SIZE_5X,
+                                    left: MyDimensions.SPACE_SIZE_3X,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(
+                                        width: MyDimensions.mySize.width * 0.63,
+                                        child: Text(
+                                          controller.cartItem[index]["title"],
+                                          style: TextStyle(
+                                            fontSize: MyDimensions.FONT_SIZE_H1,
+                                            fontWeight: FontWeight.w500,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.symmetric(
+                                            vertical:
+                                                MyDimensions.SPACE_SIZE_2X),
+                                        child: Text(
+                                          controller.cartItem[index]["price"],
+                                          style: TextStyle(
+                                              fontSize:
+                                                  MyDimensions.FONT_SIZE_H6),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height:
+                                            MyDimensions.SPACE_SIZE_5X * 1.4,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            InkWell(
+                                              onTap: () {},
+                                              child: Container(
+                                                width:
+                                                    MyDimensions.SPACE_SIZE_5X *
+                                                        2,
+                                                decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                    color: Colors.grey,
+                                                  ),
+                                                ),
+                                                child: const Icon(Icons.add),
+                                              ),
+                                            ),
+                                            Container(
+                                              width:
+                                                  MyDimensions.SPACE_SIZE_5X *
+                                                      3,
+                                              decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      color: Colors.grey)),
+                                              child: TextField(
+                                                textAlign: TextAlign.center,
+                                                controller:
+                                                    controller.inputQuatity,
+                                                style: const TextStyle(
+                                                    color: Color.fromARGB(
+                                                        255, 74, 169, 188)),
+                                                keyboardType:
+                                                    TextInputType.number,
+                                                decoration:
+                                                    const InputDecoration(
+                                                  border: InputBorder.none,
+                                                ),
+                                              ),
+                                            ),
+                                            // Text(
+                                            //   controller.cartItem[index]
+                                            //           ["quatity"]
+                                            //       .toString(),
+                                            //   style: TextStyle(
+                                            //       fontSize: MyDimensions
+                                            //           .FONT_SIZE_SPAN),
+                                            // ),
+                                            InkWell(
+                                              onTap: () {},
+                                              child: Container(
+                                                width:
+                                                    MyDimensions.SPACE_SIZE_5X *
+                                                        2,
+                                                decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                    color: Colors.grey,
+                                                  ),
+                                                ),
+                                                child: const Icon(Icons.remove),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

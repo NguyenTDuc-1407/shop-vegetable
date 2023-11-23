@@ -33,4 +33,5 @@ class TextApp {
   static String std = "Số điện thoại";
   static String danhSachDonHang = "Danh sách đơn hàng";
   static String soLuong = "Số lượng:";
+  static String gioHangTrong = "Giỏ hàng trống";
 }

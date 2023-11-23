@@ -501,132 +501,151 @@ class DetailItemPage extends GetView {
                   onTap: () {
                     showModalBottomSheet(
                       context: context,
-                      builder: (context) => Container(
-                        height: MyDimensions.mySize.height * 0.3,
-                        color: Colors.white,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(
-                                  top: MyDimensions.SPACE_SIZE_5X),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    margin: EdgeInsets.only(
-                                      left: MyDimensions.SPACE_SIZE_5X,
-                                      right: MyDimensions.SPACE_SIZE_3X,
-                                    ),
-                                    height: MyDimensions.SPACE_SIZE_5X * 6,
-                                    width: MyDimensions.SPACE_SIZE_5X * 5,
-                                    child: Image.asset(
-                                      controller.detailItem["image"],
-                                      fit: BoxFit.cover,
-                                    ),
+                      builder: (context) => SingleChildScrollView(
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              bottom: MediaQuery.of(context).viewInsets.bottom),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  controller.onBack();
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.only(
+                                    right: MyDimensions.SPACE_SIZE_4X,
+                                    top: MyDimensions.SPACE_SIZE_2X,
                                   ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        controller.detailItem["price"],
-                                        style: TextStyle(
-                                            fontSize: MyDimensions.FONT_SIZE_H5,
-                                            fontWeight: FontWeight.w500,
-                                            color: Colors.red),
-                                      ),
-                                      Container(
-                                        margin: EdgeInsets.only(
-                                            top: MyDimensions.SPACE_SIZE_3X),
-                                        height:
-                                            MyDimensions.SPACE_SIZE_5X * 1.4,
-                                        child: Row(
-                                          children: [
-                                            InkWell(
-                                              onTap: () {},
-                                              child: Container(
-                                                width:
-                                                    MyDimensions.SPACE_SIZE_5X *
-                                                        2,
-                                                decoration: BoxDecoration(
-                                                  border: Border.all(
-                                                    color: Colors.grey,
-                                                  ),
-                                                ),
-                                                child: const Icon(Icons.add),
-                                              ),
-                                            ),
-                                            Container(
-                                              width:
-                                                  MyDimensions.SPACE_SIZE_5X *
-                                                      3,
-                                              decoration: BoxDecoration(
-                                                  border: Border.all(
-                                                      color: Colors.grey)),
-                                              child: TextField(
-                                                textAlign: TextAlign.center,
-                                                controller:
-                                                    controller.inputQuatity,
-                                                style: const TextStyle(
-                                                    color: Color.fromARGB(
-                                                        255, 74, 169, 188)),
-                                                keyboardType:
-                                                    TextInputType.number,
-                                                decoration:
-                                                    const InputDecoration(
-                                                  border: InputBorder.none,
-                                                ),
-                                              ),
-                                            ),
-                                            // Text(
-                                            //   controller.cartItem[index]
-                                            //           ["quatity"]
-                                            //       .toString(),
-                                            //   style: TextStyle(
-                                            //       fontSize: MyDimensions
-                                            //           .FONT_SIZE_SPAN),
-                                            // ),
-                                            InkWell(
-                                              onTap: () {},
-                                              child: Container(
-                                                width:
-                                                    MyDimensions.SPACE_SIZE_5X *
-                                                        2,
-                                                decoration: BoxDecoration(
-                                                  border: Border.all(
-                                                    color: Colors.grey,
-                                                  ),
-                                                ),
-                                                child: const Icon(Icons.remove),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                            InkWell(
-                              onTap: () {
-                                controller.onNextPagePayment();
-                              },
-                              child: Container(
-                                height: MyDimensions.SPACE_SIZE_5X * 2.7,
-                                width: MyDimensions.mySize.width,
-                                color: Colors.teal,
-                                child: Center(
-                                  child: Text(
-                                    "Mua ngay",
-                                    style: TextStyle(
-                                        fontSize: MyDimensions.FONT_SIZE_H4,
-                                        fontWeight: FontWeight.w500),
+                                  child: const Icon(
+                                    Icons.close,
                                   ),
                                 ),
                               ),
-                            )
-                          ],
+                              Container(
+                                margin: EdgeInsets.symmetric(
+                                    vertical: MyDimensions.SPACE_SIZE_4X),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.only(
+                                        left: MyDimensions.SPACE_SIZE_5X,
+                                        right: MyDimensions.SPACE_SIZE_3X,
+                                      ),
+                                      height: MyDimensions.SPACE_SIZE_5X * 6,
+                                      width: MyDimensions.SPACE_SIZE_5X * 5,
+                                      child: Image.asset(
+                                        controller.detailItem["image"],
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          controller.detailItem["price"],
+                                          style: TextStyle(
+                                              fontSize:
+                                                  MyDimensions.FONT_SIZE_H5,
+                                              fontWeight: FontWeight.w500,
+                                              color: Colors.red),
+                                        ),
+                                        Container(
+                                          margin: EdgeInsets.only(
+                                              top: MyDimensions.SPACE_SIZE_3X),
+                                          height:
+                                              MyDimensions.SPACE_SIZE_5X * 1.4,
+                                          child: Row(
+                                            children: [
+                                              InkWell(
+                                                onTap: () {},
+                                                child: Container(
+                                                  width: MyDimensions
+                                                          .SPACE_SIZE_5X *
+                                                      2,
+                                                  decoration: BoxDecoration(
+                                                    border: Border.all(
+                                                      color: Colors.grey,
+                                                    ),
+                                                  ),
+                                                  child: const Icon(Icons.add),
+                                                ),
+                                              ),
+                                              Container(
+                                                width:
+                                                    MyDimensions.SPACE_SIZE_5X *
+                                                        3,
+                                                decoration: BoxDecoration(
+                                                    border: Border.all(
+                                                        color: Colors.grey)),
+                                                child: TextField(
+                                                  textAlign: TextAlign.center,
+                                                  controller:
+                                                      controller.inputQuatity,
+                                                  style: const TextStyle(
+                                                      color: Color.fromARGB(
+                                                          255, 74, 169, 188)),
+                                                  keyboardType:
+                                                      TextInputType.number,
+                                                  decoration:
+                                                      const InputDecoration(
+                                                    border: InputBorder.none,
+                                                  ),
+                                                ),
+                                              ),
+                                              // Text(
+                                              //   controller.cartItem[index]
+                                              //           ["quatity"]
+                                              //       .toString(),
+                                              //   style: TextStyle(
+                                              //       fontSize: MyDimensions
+                                              //           .FONT_SIZE_SPAN),
+                                              // ),
+                                              InkWell(
+                                                onTap: () {},
+                                                child: Container(
+                                                  width: MyDimensions
+                                                          .SPACE_SIZE_5X *
+                                                      2,
+                                                  decoration: BoxDecoration(
+                                                    border: Border.all(
+                                                      color: Colors.grey,
+                                                    ),
+                                                  ),
+                                                  child:
+                                                      const Icon(Icons.remove),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  controller.onNextPagePayment();
+                                },
+                                child: Container(
+                                  height: MyDimensions.SPACE_SIZE_5X * 2.7,
+                                  width: MyDimensions.mySize.width,
+                                  color: Colors.teal,
+                                  child: Center(
+                                    child: Text(
+                                      "Mua ngay",
+                                      style: TextStyle(
+                                          fontSize: MyDimensions.FONT_SIZE_H4,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     );

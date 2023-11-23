@@ -2,10 +2,15 @@
 
 import 'package:get/get.dart';
 import 'package:shopvegetable/routers/router_child/payment.dart';
+import 'package:shopvegetable/utils/image_path.dart';
 
 class PaymentController extends GetxController {
-  List payment = ["Tiền mặt", "Momo", "Vnpay"];
-  List paymentLink = ["Momo", "Vnpay", "Tài khoảng ngân hàng", "ApplePay"];
+  List payment = [
+    {"icon": ImagePath.cash, "pay": "Tiền mặt"},
+    {"icon": ImagePath.momo, "pay": "Momo"},
+    {"icon": ImagePath.credit, "pay": "Thẻ ngân hàng"},
+  ];
+  List paymentLink = ["Vnpay", "Tài khoảng ngân hàng", "ApplePay"];
   String paymentChoice = "Tiền mặt";
   void choicePayment(int index) {
     paymentChoice = payment[index];
