@@ -88,7 +88,7 @@ class HomeController extends GetxController {
       "price": "124.000đ",
       "quatity": 6,
       "checkbox": false,
-      "type": "a",
+
     },
     {
       "image": "assets/images/item1.jpg",
@@ -96,7 +96,7 @@ class HomeController extends GetxController {
       "price": "45.000đ",
       "quatity": 2,
       "checkbox": false,
-      "type": "b",
+
     },
     {
       "image": "assets/images/item1.jpg",
@@ -104,7 +104,7 @@ class HomeController extends GetxController {
       "price": "363.000đ",
       "quatity": 4,
       "checkbox": false,
-      "type": "c",
+
     },
     {
       "image": "assets/images/item1.jpg",
@@ -112,7 +112,7 @@ class HomeController extends GetxController {
       "price": "363.000đ",
       "quatity": 1,
       "checkbox": false,
-      "type": "d",
+    
     },
     {
       "image": "assets/images/item1.jpg",
@@ -120,7 +120,7 @@ class HomeController extends GetxController {
       "price": "363.000đ",
       "quatity": 1,
       "checkbox": false,
-      "type": "a",
+     
     },
   ];
 

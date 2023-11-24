@@ -1,3 +1,4 @@
+import 'package:add_to_cart_animation/add_to_cart_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
@@ -11,8 +12,12 @@ class DetailItemPage extends GetView {
   Widget build(BuildContext context) {
     return GetBuilder(
       init: DetailItemController(),
-      builder: (DetailItemController controller) => GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
+      builder: (DetailItemController controller) => AddToCartAnimation(
+        cartKey: controller.cartKey,
+        dragAnimation: const DragToCartAnimationOptions(rotation: true),
+        createAddToCartAnimation: (runAddToCartAnimation) {
+          controller.runAddToCartAnimation = runAddToCartAnimation;
+        },
         child: Scaffold(
           backgroundColor: const Color.fromARGB(255, 240, 240, 240),
           body: CustomScrollView(
@@ -24,10 +29,9 @@ class DetailItemPage extends GetView {
                 automaticallyImplyLeading: false,
                 flexibleSpace: Stack(
                   children: [
-                    Container(
+                    SizedBox(
                       height: MyDimensions.mySize.height * 0.5,
                       width: MyDimensions.mySize.width,
-                      color: Colors.red,
                       child: Image.asset(
                         controller.detailItem["image"],
                         fit: BoxFit.cover,
@@ -81,9 +85,16 @@ class DetailItemPage extends GetView {
                                         color: Color.fromARGB(62, 61, 54, 54)),
                                     height: MyDimensions.SPACE_SIZE_5X * 2.9,
                                     width: MyDimensions.SPACE_SIZE_5X * 1.8,
-                                    child: Image.asset(
-                                      "assets/icons/cart.png",
-                                      color: Colors.white,
+                                    child: AddToCartIcon(
+                                      key: controller.cartKey,
+                                      icon: Image.asset(
+                                        "assets/icons/cart.png",
+                                        color: Colors.white,
+                                      ),
+                                      badgeOptions: const BadgeOptions(
+                                        active: true,
+                                        backgroundColor: Colors.red,
+                                      ),
                                     ),
                                   ),
                                   Visibility(
@@ -480,22 +491,27 @@ class DetailItemPage extends GetView {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                    child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      "assets/icons/cart.png",
-                      height: MyDimensions.SPACE_SIZE_5X,
-                      width: MyDimensions.SPACE_SIZE_5X,
-                    ),
-                    Text(
-                      "Giỏ hàng",
-                      style: TextStyle(
-                        fontSize: MyDimensions.FONT_SIZE_SPAN_SMALL,
+                    child: GestureDetector(
+                  onTap: () {
+                    // controller.onAddCart();
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/icons/cart.png",
+                        height: MyDimensions.SPACE_SIZE_5X,
+                        width: MyDimensions.SPACE_SIZE_5X,
                       ),
-                    )
-                  ],
+                      Text(
+                        "Giỏ hàng",
+                        style: TextStyle(
+                          fontSize: MyDimensions.FONT_SIZE_SPAN_SMALL,
+                        ),
+                      )
+                    ],
+                  ),
                 )),
                 GestureDetector(
                   onTap: () {
@@ -519,7 +535,7 @@ class DetailItemPage extends GetView {
                                     top: MyDimensions.SPACE_SIZE_2X,
                                   ),
                                   child: const Icon(
-                                    Icons.close,
+                                    Icons.clear,
                                   ),
                                 ),
                               ),

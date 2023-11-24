@@ -13,7 +13,7 @@ class PaymentController extends GetxController {
   List paymentLink = ["Vnpay", "Tài khoảng ngân hàng", "ApplePay"];
   String paymentChoice = "Tiền mặt";
   void choicePayment(int index) {
-    paymentChoice = payment[index];
+    paymentChoice = payment[index]["pay"];
     update();
   }
 

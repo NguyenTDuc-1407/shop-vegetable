@@ -23,7 +23,6 @@ class CartController extends GetxController {
   void onInit() {
     super.onInit();
     checkData();
-    // onTypeItem();
   }
 
   void checkData() {
@@ -36,26 +35,7 @@ class CartController extends GetxController {
   }
 
   // void quatity() {}
-  // void onTypeItem() {
-  //   var c = 0;
-  //   for (var i in cartItem) {
-  //     typeItem.addAll({
-  //       i["type"],
-  //       [i]
-  //     });
-  //     for (var j in typeItem) {
-  //       if (i["type"] == j) {
-  //         c++;
-  //         print(c);
-  //         // if (c == 1) {
-  //         //   print(typeItem);
-  //         // }
-  //       }
-  //     }
-  //   }
-  //   print(typeItem);
-  //   update();
-  // }
+
 
   void onCheckBox() {
     checkBox = !checkBox;

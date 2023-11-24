@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_is_empty, non_constant_identifier_names, unnecessary_overrides
+import 'package:add_to_cart_animation/add_to_cart_icon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
@@ -13,9 +14,11 @@ class DetailItemController extends GetxController {
   bool checkCart = false;
   bool hideText = false;
   var detailItem = Get.arguments[0];
-  var CartItem = Get.arguments[1];
+  List CartItem = Get.arguments[1];
   var homeItem = Get.arguments[2];
   ItemProvider itemProvider = GetIt.I.get<ItemProvider>();
+  GlobalKey<CartIconKey> cartKey = GlobalKey<CartIconKey>();
+  late Function(GlobalKey) runAddToCartAnimation;
 
   @override
   void onInit() {
@@ -24,6 +27,12 @@ class DetailItemController extends GetxController {
     checkCartItem();
     addItem();
   }
+
+  // void onAddCart() {
+  //   // await runAddToCartAnimation(widgetKey);
+  //   // print(await runAddToCartAnimation(widgetKey));
+  //   CartItem.add(detailItem);
+  // }
 
   void checkCartItem() {
     if (CartItem.length != 0) {
