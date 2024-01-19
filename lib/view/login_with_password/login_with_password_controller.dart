@@ -2,8 +2,8 @@
 // import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_it/get_it.dart';
-import 'package:shopvegetable/provider/user_provider.dart';
+// import 'package:get_it/get_it.dart';
+// import 'package:shopvegetable/provider/user_provider.dart';
 import 'package:shopvegetable/routers/router_child/login_with_password_router.dart';
 // import 'package:shopvegetable/utils/notification.dart';
 
@@ -15,13 +15,13 @@ class LoginWithPasswordController extends GetxController {
   var inputPassword = true.obs;
   var checkBox = true.obs;
   var iconPassword = false;
-  final UserProvider _userProvider = GetIt.I.get<UserProvider>();
+  // final UserProvider _userProvider = GetIt.I.get<UserProvider>();
   String email = '';
   String password = '';
 
   @override
   void onInit() {
-    getAllUser();
+    // getAllUser();
     // FirebaseMessaging.onMessage.listen((messsage) {
     //   sendNotification();
     // });
@@ -95,16 +95,16 @@ class LoginWithPasswordController extends GetxController {
     update();
   }
 
-  void getAllUser() {
-    _userProvider.AllUser(
-      onSuccess: (posts) {
-        for (var i in posts) {
-          print(i.title);
-        }
-      },
-      onError: (error) {},
-    );
-  }
+  // void getAllUser() {
+  //   _userProvider.AllUser(
+  //     onSuccess: (posts) {
+  //       for (var i in posts) {
+  //         print(i.title);
+  //       }
+  //     },
+  //     onError: (error) {},
+  //   );
+  // }
 
   // void showNotification() {
   //   sendNotification(title: "testt", body: "okasfasasdadadasdascb asdfafsa");

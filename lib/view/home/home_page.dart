@@ -201,7 +201,7 @@ class HomePage extends GetView {
                               Expanded(
                                 child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
-                                  itemCount: controller.homeItem.length,
+                                  itemCount: controller.Item.length,
                                   itemBuilder: (context, index) =>
                                       GestureDetector(
                                     onTap: () {},
@@ -224,8 +224,7 @@ class HomePage extends GetView {
                                             height: MyDimensions.SPACE_SIZE_5X *
                                                 5.5,
                                             child: Image.asset(
-                                              controller.homeItem[index]
-                                                  ["image"],
+                                              controller.Item[index]["image"],
                                               fit: BoxFit.cover,
                                             ),
                                           ),
@@ -240,8 +239,9 @@ class HomePage extends GetView {
                                                         .spaceBetween,
                                                 children: [
                                                   Text(
-                                                    controller.homeItem[index]
-                                                        ["title"],
+                                                    controller.Item[index]
+                                                            ["title"]
+                                                        .toString(),
                                                     style: TextStyle(
                                                         fontSize: MyDimensions
                                                             .FONT_SIZE_SPAN,
@@ -251,77 +251,77 @@ class HomePage extends GetView {
                                                         TextOverflow.ellipsis,
                                                     maxLines: 2,
                                                   ),
-                                                  Container(
-                                                    margin: EdgeInsets.only(
-                                                        top: MyDimensions
-                                                            .SPACE_SIZE_1X,
-                                                        bottom: MyDimensions
-                                                            .SPACE_SIZE_1X),
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Text(
-                                                          controller.homeItem[
-                                                              index]["price"],
-                                                          style: TextStyle(
-                                                              fontSize: MyDimensions
-                                                                  .FONT_SIZE_SPAN,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              color:
-                                                                  Colors.teal),
-                                                        ),
-                                                        Expanded(
-                                                          child: Container(
-                                                            margin: EdgeInsets.only(
-                                                                left: MyDimensions
-                                                                    .SPACE_SIZE_5X),
-                                                            child: RichText(
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .right,
-                                                              overflow:
-                                                                  TextOverflow
-                                                                      .ellipsis,
-                                                              text: TextSpan(
-                                                                text:
-                                                                    "đã bán: ",
-                                                                style:
-                                                                    TextStyle(
-                                                                  fontSize:
-                                                                      MyDimensions
-                                                                              .FONT_SIZE_SPAN_SMALL *
-                                                                          0.75,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  color: Colors
-                                                                      .black,
-                                                                ),
-                                                                children: [
-                                                                  TextSpan(
-                                                                    text: controller
-                                                                        .quantitySoldList[
-                                                                            index]
-                                                                        .toString(),
-                                                                    style: TextStyle(
-                                                                        fontSize:
-                                                                            MyDimensions.FONT_SIZE_SPAN_SMALL *
-                                                                                0.75,
-                                                                        fontWeight:
-                                                                            FontWeight.w500),
-                                                                  )
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
+                                                  // Container(
+                                                  //   margin: EdgeInsets.only(
+                                                  //       top: MyDimensions
+                                                  //           .SPACE_SIZE_1X,
+                                                  //       bottom: MyDimensions
+                                                  //           .SPACE_SIZE_1X),
+                                                  //   child: Row(
+                                                  //     mainAxisAlignment:
+                                                  //         MainAxisAlignment
+                                                  //             .spaceBetween,
+                                                  //     children: [
+                                                  //       Text(
+                                                  //         controller.homeItem[
+                                                  //             index]["price"],
+                                                  //         style: TextStyle(
+                                                  //             fontSize: MyDimensions
+                                                  //                 .FONT_SIZE_SPAN,
+                                                  //             fontWeight:
+                                                  //                 FontWeight
+                                                  //                     .w500,
+                                                  //             color:
+                                                  //                 Colors.teal),
+                                                  //       ),
+                                                  //       Expanded(
+                                                  //         child: Container(
+                                                  //           margin: EdgeInsets.only(
+                                                  //               left: MyDimensions
+                                                  //                   .SPACE_SIZE_5X),
+                                                  //           child: RichText(
+                                                  //             textAlign:
+                                                  //                 TextAlign
+                                                  //                     .right,
+                                                  //             overflow:
+                                                  //                 TextOverflow
+                                                  //                     .ellipsis,
+                                                  //             text: TextSpan(
+                                                  //               text:
+                                                  //                   "đã bán: ",
+                                                  //               style:
+                                                  //                   TextStyle(
+                                                  //                 fontSize:
+                                                  //                     MyDimensions
+                                                  //                             .FONT_SIZE_SPAN_SMALL *
+                                                  //                         0.75,
+                                                  //                 fontWeight:
+                                                  //                     FontWeight
+                                                  //                         .w500,
+                                                  //                 color: Colors
+                                                  //                     .black,
+                                                  //               ),
+                                                  //               children: [
+                                                  //                 TextSpan(
+                                                  //                   text: controller
+                                                  //                       .quantitySoldList[
+                                                  //                           index]
+                                                  //                       .toString(),
+                                                  //                   style: TextStyle(
+                                                  //                       fontSize:
+                                                  //                           MyDimensions.FONT_SIZE_SPAN_SMALL *
+                                                  //                               0.75,
+                                                  //                       fontWeight:
+                                                  //                           FontWeight.w500),
+                                                  //                 )
+                                                  //               ],
+                                                  //             ),
+                                                  //           ),
+                                                  //         ),
+                                                  //       ),
+                                                  //     ],
+                                                  //   ),
+                                                  // ),
                                                 ],
                                               ),
                                             ),

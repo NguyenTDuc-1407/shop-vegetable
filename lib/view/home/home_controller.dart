@@ -1,7 +1,9 @@
-// ignore_for_file: prefer_is_empty, non_constant_identifier_names, unrelated_type_equality_checks, unnecessary_overrides
+// ignore_for_file: prefer_is_empty, non_constant_identifier_names, unrelated_type_equality_checks, unnecessary_overrides, unused_field
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
+import 'package:shopvegetable/provider/user_provider.dart';
 import 'package:shopvegetable/routers/router_child/home_router.dart';
 
 class HomeController extends GetxController {
@@ -13,6 +15,8 @@ class HomeController extends GetxController {
   final defaultDuration = const Duration(hours: 2, minutes: 30);
   String quantitySold = "";
   List quantitySoldList = [];
+  final UserProvider _userProvider = GetIt.I.get<UserProvider>();
+  List Item = [];
   List homebanner = [
     {
       "image": "assets/images/banner1.jpg",
@@ -27,6 +31,22 @@ class HomeController extends GetxController {
       "image": "assets/images/banner4.jpg",
     },
   ];
+  void getAllUser() {
+    _userProvider.AllUser(
+      onSuccess: (posts) {
+        for (var i in posts) {
+          Item.addAll([
+            {
+              "image": "assets/images/item1.jpg",
+              "title": i.title,
+              "context": i.body
+            }
+          ]);
+        }
+      },
+      onError: (error) {},
+    );
+  }
 
   List homeItem = [
     {
@@ -88,7 +108,6 @@ class HomeController extends GetxController {
       "price": "124.000đ",
       "quatity": 6,
       "checkbox": false,
-
     },
     {
       "image": "assets/images/item1.jpg",
@@ -96,7 +115,6 @@ class HomeController extends GetxController {
       "price": "45.000đ",
       "quatity": 2,
       "checkbox": false,
-
     },
     {
       "image": "assets/images/item1.jpg",
@@ -104,7 +122,6 @@ class HomeController extends GetxController {
       "price": "363.000đ",
       "quatity": 4,
       "checkbox": false,
-
     },
     {
       "image": "assets/images/item1.jpg",
@@ -112,7 +129,6 @@ class HomeController extends GetxController {
       "price": "363.000đ",
       "quatity": 1,
       "checkbox": false,
-    
     },
     {
       "image": "assets/images/item1.jpg",
@@ -120,13 +136,13 @@ class HomeController extends GetxController {
       "price": "363.000đ",
       "quatity": 1,
       "checkbox": false,
-     
     },
   ];
 
   @override
   void onInit() {
     super.onInit();
+    getAllUser();
     checkCartItem();
     checkQuantitySold();
   }
