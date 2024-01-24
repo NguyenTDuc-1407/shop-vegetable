@@ -16,7 +16,8 @@ class HomeController extends GetxController {
   String quantitySold = "";
   List quantitySoldList = [];
   final UserProvider _userProvider = GetIt.I.get<UserProvider>();
-  List Item = [];
+  List Item = Get.arguments[0];
+  List homeItem = Get.arguments[1];
   List homebanner = [
     {
       "image": "assets/images/banner1.jpg",
@@ -29,75 +30,6 @@ class HomeController extends GetxController {
     },
     {
       "image": "assets/images/banner4.jpg",
-    },
-  ];
-  void getAllUser() {
-    _userProvider.AllUser(
-      onSuccess: (posts) {
-        for (var i in posts) {
-          Item.addAll([
-            {
-              "image": "assets/images/item1.jpg",
-              "title": i.title,
-              "context": i.body
-            }
-          ]);
-        }
-      },
-      onError: (error) {},
-    );
-  }
-
-  List homeItem = [
-    {
-      "image": "assets/images/item1.jpg",
-      "title":
-          "aaaaaaaaaaasssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
-      "price": "1234.000đ",
-      "context":
-          "asdsadfsagregdagagdhhdfhhhhhhhgsgregsdgsdgsdgrgdfgrehdfhdhtrhdrfhthrhdagareghthjghrharhsthfg5htjdrhtggehfharhthghnhthtasdsssssssssssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddddawwwwwwwwwwwwwwwwwwwwwwwwdssssssssssssjrh",
-      "like": false,
-      "quantitySold": 25,
-    },
-    {
-      "image": "assets/images/item1.jpg",
-      "title": "bbbbbbbbbbbbb",
-      "price": "5345.000đ",
-      "context": "",
-      "like": false,
-      "quantitySold": 43,
-    },
-    {
-      "image": "assets/images/item1.jpg",
-      "title": "ccccccccccccccccsssssssssssssssssssssssssssssssssssss",
-      "price": "64.000đ",
-      "context": "",
-      "like": false,
-      "quantitySold": 14235,
-    },
-    {
-      "image": "assets/images/item1.jpg",
-      "title": "ddddddddddddd",
-      "price": "65.000đ",
-      "context": "",
-      "like": false,
-      "quantitySold": 45,
-    },
-    {
-      "image": "assets/images/item1.jpg",
-      "title": "eeeeeeeeeeeeeeeeeeeeee",
-      "price": "74.000đ",
-      "context": "",
-      "like": false,
-      "quantitySold": 625658,
-    },
-    {
-      "image": "assets/images/item1.jpg",
-      "title": "fffffffffffffff",
-      "price": "63.000đ",
-      "context": "",
-      "like": false,
-      "quantitySold": 140235,
     },
   ];
 
@@ -142,7 +74,6 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    getAllUser();
     checkCartItem();
     checkQuantitySold();
   }

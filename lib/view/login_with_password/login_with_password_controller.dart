@@ -1,9 +1,9 @@
-// ignore_for_file: unnecessary_overrides, avoid_print
+// ignore_for_file: unnecessary_overrides, avoid_print, non_constant_identifier_names
 // import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'package:get_it/get_it.dart';
-// import 'package:shopvegetable/provider/user_provider.dart';
+import 'package:get_it/get_it.dart';
+import 'package:shopvegetable/provider/user_provider.dart';
 import 'package:shopvegetable/routers/router_child/login_with_password_router.dart';
 // import 'package:shopvegetable/utils/notification.dart';
 
@@ -15,13 +15,16 @@ class LoginWithPasswordController extends GetxController {
   var inputPassword = true.obs;
   var checkBox = true.obs;
   var iconPassword = false;
-  // final UserProvider _userProvider = GetIt.I.get<UserProvider>();
+  final UserProvider _userProvider = GetIt.I.get<UserProvider>();
   String email = '';
   String password = '';
+  List Item = [];
+  bool isLoading = false;
+  List homeItem = [];
 
   @override
   void onInit() {
-    // getAllUser();
+    getAllUser();
     // FirebaseMessaging.onMessage.listen((messsage) {
     //   sendNotification();
     // });
@@ -88,23 +91,41 @@ class LoginWithPasswordController extends GetxController {
         checkInputEmail.text != '') {
       checkInputEmail.clear();
       checkInputPassword.clear();
-      Get.toNamed(LoginWithPasswordRouter.home);
+      Get.toNamed(LoginWithPasswordRouter.home, arguments: [Item,homeItem]);
     } else {}
     actionIconPassword();
     onCheckNullEmail();
     update();
   }
 
-  // void getAllUser() {
-  //   _userProvider.AllUser(
-  //     onSuccess: (posts) {
-  //       for (var i in posts) {
-  //         print(i.title);
-  //       }
-  //     },
-  //     onError: (error) {},
-  //   );
-  // }
+  void getAllUser() {
+    _userProvider.AllUser(
+      onSuccess: (posts) {
+        for (var i in posts) {
+          Item.addAll([
+            {
+              "image": "assets/images/item1.jpg",
+              "title": i.title,
+              "context": i.body
+            }
+          ]);
+          homeItem.addAll([
+            {
+              "image": "assets/images/item1.jpg",
+              "title": i.title,
+              "context": i.body,
+              "price": "1234.000đ",
+              "like": false,
+              "quantitySold": 25,
+            }
+          ]);
+          isLoading = true;
+          update();
+        }
+      },
+      onError: (error) {},
+    );
+  }
 
   // void showNotification() {
   //   sendNotification(title: "testt", body: "okasfasasdadadasdascb asdfafsa");
