@@ -28,6 +28,8 @@ class LoginWithPasswordController extends GetxController {
     // FirebaseMessaging.onMessage.listen((messsage) {
     //   sendNotification();
     // });
+    print(Item);
+    print(homeItem);
     super.onInit();
   }
 
@@ -91,7 +93,7 @@ class LoginWithPasswordController extends GetxController {
         checkInputEmail.text != '') {
       checkInputEmail.clear();
       checkInputPassword.clear();
-      Get.toNamed(LoginWithPasswordRouter.home, arguments: [Item,homeItem]);
+      Get.toNamed(LoginWithPasswordRouter.home, arguments: [Item, homeItem]);
     } else {}
     actionIconPassword();
     onCheckNullEmail();
@@ -123,7 +125,9 @@ class LoginWithPasswordController extends GetxController {
           update();
         }
       },
-      onError: (error) {},
+      onError: (error) {
+        print(error);
+      },
     );
   }
 

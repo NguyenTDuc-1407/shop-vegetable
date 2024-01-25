@@ -12,7 +12,7 @@ class UserReponsitories {
       final respone = await dioClient!.get("posts");
       return ApiResponse.withSuccess(respone);
     } catch (e) {
-      return ApiResponse.withError('loi');
+      return ApiResponse.withError(e);
     }
   }
 }
