@@ -28,8 +28,6 @@ class LoginWithPasswordController extends GetxController {
     // FirebaseMessaging.onMessage.listen((messsage) {
     //   sendNotification();
     // });
-    print(Item);
-    print(homeItem);
     super.onInit();
   }
 
@@ -107,15 +105,15 @@ class LoginWithPasswordController extends GetxController {
           Item.addAll([
             {
               "image": "assets/images/item1.jpg",
-              "title": i.title,
-              "context": i.body
+              "title": i.id,
+              // "context": i.body
             }
           ]);
           homeItem.addAll([
             {
               "image": "assets/images/item1.jpg",
-              "title": i.title,
-              "context": i.body,
+              "title": i.id,
+              // "context": i.body,
               "price": "1234.000đ",
               "like": false,
               "quantitySold": 25,

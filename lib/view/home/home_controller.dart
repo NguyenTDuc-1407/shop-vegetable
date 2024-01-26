@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_is_empty, non_constant_identifier_names, unrelated_type_equality_checks, unnecessary_overrides, unused_field
+// ignore_for_file: prefer_is_empty, non_constant_identifier_names, unrelated_type_equality_checks, unnecessary_overrides, unused_field, prefer_final_fields, avoid_print
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -18,6 +18,8 @@ class HomeController extends GetxController {
   final UserProvider _userProvider = GetIt.I.get<UserProvider>();
   List Item = Get.arguments[0];
   List homeItem = Get.arguments[1];
+  final scrollController = ScrollController();
+
   List homebanner = [
     {
       "image": "assets/images/banner1.jpg",
@@ -76,6 +78,22 @@ class HomeController extends GetxController {
     super.onInit();
     checkCartItem();
     checkQuantitySold();
+    scrollController.addListener(() {
+      if (scrollController.position.maxScrollExtent ==
+          scrollController.offset) {
+        fetch();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
+
+  Future fetch() async {
+    homeItem;
   }
 
   void checkCartItem() {
@@ -117,8 +135,40 @@ class HomeController extends GetxController {
     update();
   }
 
+  void getAllUser() {
+    _userProvider.AllUser(
+      onSuccess: (posts) {
+        for (var i in posts) {
+          Item.addAll([
+            {
+              "image": "assets/images/item1.jpg",
+              "title": i.id,
+              // "context": i.body
+            }
+          ]);
+          homeItem.addAll([
+            {
+              "image": "assets/images/item1.jpg",
+              "title": i.id,
+              // "context": i.body,
+              "price": "1234.000đ",
+              "like": false,
+              "quantitySold": 25,
+            }
+          ]);
+
+          update();
+        }
+      },
+      onError: (error) {
+        print(error);
+      },
+    );
+  }
+
   Future Refresh() async {
-    homeItem = [];
+    getAllUser();
+    homeItem;
     update();
   }
 
